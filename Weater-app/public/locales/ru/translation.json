@@ -1,0 +1,13 @@
+{
+  "placeholder": "Напишите город...и нажмите Enter ",
+  "mainePageWeather": {
+    "loading": "Загрузка, подождите пожалуйста...",
+    "today": "Сегодня",
+    "city": "Город",
+    "temperature": "температура",
+    "feel": "чувствуется как ",
+    "precipitation": "осадки",
+    "pressire": "давление",
+    "wind": "ветер"
+  }
+}
