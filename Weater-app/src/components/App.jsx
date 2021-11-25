@@ -19,7 +19,6 @@ const App = () => {
 
   return (
     <Suspense fallback={<Loading />}>
-      test
       <MainAppWrapper>
         <Header />
         <Main />
