@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import store from './redux/store/store.js';
-import './i18n';
+import { store } from './store/thunk/index.js';
 
-import App from './modules/App.jsx';
+import App from './components/App.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
