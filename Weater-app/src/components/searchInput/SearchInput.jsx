@@ -1,14 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Hint } from 'react-autocomplete-hint';
 
 import { fetchData } from '../../store/thunk/action/app';
 import { languegeObject } from '../../store/data/languageObject';
 
-import { Input } from './styledComponents/SearchInput';
+import { SearchWrapper } from './styledComponents/SearchInput';
 
 const SearchInput = () => {
   const dispatch = useDispatch();
-  const lang = useSelector((state) => state.app.lang);
+
+  const state = useSelector((state) => state.app);
+
+  const { weather, lang } = state;
 
   const onKeyPressHandler = (e) => {
     if (e.key === 'Enter') {
@@ -17,12 +21,15 @@ const SearchInput = () => {
   };
 
   return (
-    <Input
-      type="text"
-      placeholder={languegeObject[lang].placeholder}
-      name="search_city"
-      onKeyPress={onKeyPressHandler}
-    />
+    <SearchWrapper>
+      <Hint options={[weather.name]}>
+        <input
+          className="input"
+          placeholder={languegeObject[lang].placeholder}
+          onKeyPress={onKeyPressHandler}
+        />
+      </Hint>
+    </SearchWrapper>
   );
 };
 
