@@ -5,7 +5,7 @@ import { White } from '../../../assets/colors/colors';
 export const SearchWrapper = styled.div`
   width: 100%;
 
-  .input {
+  .searchInput {
     max-width: 420px;
     width: 100%;
     height: 40px;

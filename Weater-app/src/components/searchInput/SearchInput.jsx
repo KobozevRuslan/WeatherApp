@@ -24,7 +24,7 @@ const SearchInput = () => {
     <SearchWrapper>
       <Hint options={[weather.name]}>
         <input
-          className="input"
+          className="searchInput"
           placeholder={languegeObject[lang].placeholder}
           onKeyPress={onKeyPressHandler}
         />
