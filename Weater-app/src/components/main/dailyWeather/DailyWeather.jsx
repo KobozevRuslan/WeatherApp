@@ -3,17 +3,14 @@ import { useSelector } from 'react-redux';
 
 import { languegeObject } from '../../../store/data/languageObject';
 
-
 import {
   MainDailyWeatherWrapper,
   DailyWeatherWrapper,
 } from './styledComponents/DailyWeather';
 
 const DailyWeather = () => {
-  const lang = useSelector((state) => state.app.lang);
-
   const state = useSelector((state) => state.app);
-  const { weather, isLoading } = state;
+  const { weather, isLoading, lang } = state;
 
   return (
     <MainDailyWeatherWrapper>

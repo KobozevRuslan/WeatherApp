@@ -13,6 +13,7 @@ const fetchDataError = () => ({ type: APP_FETCH_DATA_ERROR });
 
 export const changeLang = (payload) => ({ type: APP_CHANGE_LANG, payload });
 
+
 export const fetchData = (city) => {
   return async (dispatch) => {
     try {

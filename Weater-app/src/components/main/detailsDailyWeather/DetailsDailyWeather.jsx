@@ -12,10 +12,8 @@ import cloud from '../../../assets/image/cloud.png';
 import { MainDetailsDailyWeatherWrapper } from './styledComponents/DetailsDailyWeather';
 
 const DetailsDailyWeather = () => {
-  const lang = useSelector((state) => state.app.lang);
-
   const state = useSelector((state) => state.app);
-  const { weather, isLoading } = state;
+  const { weather, isLoading, lang } = state;
 
   return (
     <MainDetailsDailyWeatherWrapper>

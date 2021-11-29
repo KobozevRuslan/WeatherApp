@@ -1,9 +1,8 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { fetchData } from '../store/thunk/action/app';
 
-import Loading from './loading/Loading';
 import Header from './header/Header';
 import Main from './main/Main';
 
@@ -18,13 +17,11 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <MainAppWrapper>
-        <Header />
-        <Main />
-        <GlobalStyle />
-      </MainAppWrapper>
-    </Suspense>
+    <MainAppWrapper>
+      <Header />
+      <Main />
+      <GlobalStyle />
+    </MainAppWrapper>
   );
 };
 

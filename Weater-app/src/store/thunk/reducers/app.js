@@ -4,6 +4,7 @@ import {
   APP_FETCH_DATA_SUCCESS,
 } from '../actionType';
 
+
 export const initialState = {
   weather: {
     main: {
@@ -40,7 +41,7 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         weather: payload,
-        isLoading: false
+        isLoading: false,
       };
     case APP_CHANGE_LANG:
       return {
