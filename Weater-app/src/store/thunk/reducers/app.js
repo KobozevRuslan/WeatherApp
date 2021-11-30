@@ -4,7 +4,6 @@ import {
   APP_FETCH_DATA_SUCCESS,
 } from '../actionType';
 
-
 export const initialState = {
   weather: {
     main: {
