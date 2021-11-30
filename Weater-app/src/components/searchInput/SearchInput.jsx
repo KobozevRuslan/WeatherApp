@@ -27,7 +27,7 @@ const SearchInput = () => {
     setIsOpen(!isOpen);
   };
 
-  const itemClickHandler = (e) => {
+  const itemOnClickHandler = (e) => {
     setValue(e.target.textContent);
     dispatch(fetchData(e.target.textContent));
     setIsOpen(!isOpen);
@@ -38,7 +38,7 @@ const SearchInput = () => {
     setIsOpen(true);
   };
 
-  const inputClickHandler = () => {
+  const inputOnClickHandler = () => {
     setIsOpen(true);
   };
 
@@ -50,7 +50,7 @@ const SearchInput = () => {
         placeholder={languegeObject[lang].placeholder}
         onKeyPress={onKeyPressHandler}
         onChange={onChangeHandler}
-        onClick={inputClickHandler}
+        onClick={inputOnClickHandler}
       />
       <ul className="autocomplete">
         {value && isOpen
@@ -59,7 +59,7 @@ const SearchInput = () => {
                 <li
                   className="autocompelete_item"
                   key={index}
-                  onClick={itemClickHandler}
+                  onClick={itemOnClickHandler}
                 >
                   {citie.name}
                 </li>
