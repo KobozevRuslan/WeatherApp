@@ -12,9 +12,7 @@ const SearchInput = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.app);
-
-  const { lang } = state;
+  const lang = useSelector((state) => state.app.lang);
 
   const filteredCities = cities
     .filter((cities) => {
@@ -30,8 +28,9 @@ const SearchInput = () => {
   };
 
   const itemClickHandler = (e) => {
-    dispatch(fetchData(e.target.textContent));
     setValue(e.target.textContent);
+    dispatch(fetchData(e.target.textContent));
+    setIsOpen(!isOpen);
   };
 
   const onChangeHandler = (e) => {
@@ -55,11 +54,11 @@ const SearchInput = () => {
       />
       <ul className="autocomplete">
         {value && isOpen
-          ? filteredCities.map((citie) => {
+          ? filteredCities.map((citie, index) => {
               return (
                 <li
                   className="autocompelete_item"
-                  key={citie.name}
+                  key={index}
                   onClick={itemClickHandler}
                 >
                   {citie.name}
