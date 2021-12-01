@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { languegeObject } from '../../../store/data/languageObject';
 
-import tempIcon from '../../../assets/image/tempIcon.jpg';
+import tempIcon from '../../../assets/image/tempIcon.png';
 import humidityIcon from '../../../assets/image/humidityIcon.png';
 import precipitationIcon from '../../../assets/image/precipitationIcon.png';
 import windIcon from '../../../assets/image/windIcon.png';
