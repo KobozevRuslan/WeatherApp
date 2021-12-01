@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-import { DodgerBlue, White } from '../../../assets/colors/colors';
+import {
+  Black,
+  DodgerBlue,
+  LightBlack,
+  White,
+} from '../../../assets/colors/colors';
 
 export const SearchWrapper = styled.div`
   width: 100%;
@@ -15,7 +20,10 @@ export const SearchWrapper = styled.div`
     border: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    background: ${White};
+    transition: all 0.3s ease-in;
+    color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
+    background: ${(props) =>
+      props.changeTheme ? `${LightBlack}` : `${White}`};
     outline: none;
   }
 

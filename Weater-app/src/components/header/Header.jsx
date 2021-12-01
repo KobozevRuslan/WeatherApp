@@ -5,21 +5,22 @@ import weatherIcon from '../../assets/image/weatherIcon.png';
 import CustomButton from '../customButton/CustomButton';
 import SearchInput from '../searchInput/SearchInput';
 
-import { HeaderWrapper } from './styledComponents/Header';
+import { MainWeatherHeaderWrapper } from './styledComponents/Header';
 
 const Header = () => {
-
   return (
-    <HeaderWrapper>
+    <MainWeatherHeaderWrapper>
       <div className="weatherHeaderItems">
-        <img src={weatherIcon} alt="weatherIcon" />
-        <h1>Weather App</h1>
+        <div className="weatherHeaderItems">
+          <img src={weatherIcon} alt="weatherIcon" />
+          <h1>Weather App</h1>
+        </div>
       </div>
       <div className="weatherItems">
         <SearchInput />
         <CustomButton />
       </div>
-    </HeaderWrapper>
+    </MainWeatherHeaderWrapper>
   );
 };
 

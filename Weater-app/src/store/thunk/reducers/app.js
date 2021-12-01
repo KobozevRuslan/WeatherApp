@@ -1,5 +1,6 @@
 import {
   APP_CHANGE_LANG,
+  APP_CHANGE_THEME,
   APP_FETCH_DATA_START,
   APP_FETCH_DATA_SUCCESS,
 } from '../actionType';
@@ -26,6 +27,7 @@ export const initialState = {
   },
   lang: 'eng',
   isLoading: true,
+  theme: false,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -46,6 +48,11 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         lang: payload,
+      };
+    case APP_CHANGE_THEME:
+      return {
+        ...state,
+        theme: !state.theme,
       };
     default:
       return state;

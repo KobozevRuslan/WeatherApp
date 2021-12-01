@@ -3,16 +3,21 @@ import {
   APP_FETCH_DATA_SUCCESS,
   APP_FETCH_DATA_ERROR,
   APP_CHANGE_LANG,
+  APP_CHANGE_THEME,
 } from '../actionType';
 
 import ApiWeather from '../../../service/Api';
 
 const fetchDataStart = () => ({ type: APP_FETCH_DATA_START });
-const fetchDataSuccess = (payload) => ({ type: APP_FETCH_DATA_SUCCESS, payload });
+const fetchDataSuccess = (payload) => ({
+  type: APP_FETCH_DATA_SUCCESS,
+  payload,
+});
 const fetchDataError = () => ({ type: APP_FETCH_DATA_ERROR });
 
 export const changeLang = (payload) => ({ type: APP_CHANGE_LANG, payload });
 
+export const changeTheme = () => ({ type: APP_CHANGE_THEME });
 
 export const fetchData = (city) => {
   return async (dispatch) => {

@@ -3,21 +3,18 @@ import { useSelector } from 'react-redux';
 
 import { languegeObject } from '../../../store/data/languageObject';
 
-import {
-  MainDailyWeatherWrapper,
-  DailyWeatherWrapper,
-} from './styledComponents/DailyWeather';
+import { MainDailyWeatherWrapper } from './styledComponents/DailyWeather';
 
 const DailyWeather = () => {
   const state = useSelector((state) => state.app);
-  const { weather, isLoading, lang } = state;
+  const { weather, isLoading, lang, theme } = state;
 
   return (
-    <MainDailyWeatherWrapper>
+    <MainDailyWeatherWrapper changeTheme={theme}>
       {isLoading ? (
         <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
       ) : (
-        <DailyWeatherWrapper>
+        <div className="dailyWeatherWrapper">
           <div>
             <div className="dailyWeatherCardInfo">
               <h1>
@@ -38,7 +35,7 @@ const DailyWeather = () => {
             <span>{weather?.name}</span>
             <sup>{weather?.sys.country}</sup>
           </div>
-        </DailyWeatherWrapper>
+        </div>
       )}
     </MainDailyWeatherWrapper>
   );
