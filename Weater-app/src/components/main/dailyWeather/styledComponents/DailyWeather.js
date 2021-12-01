@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-import { DodgerBlue, Gray } from '../../../../assets/colors/colors';
-
+import {
+  Black,
+  DarkGray,
+  DodgerBlue,
+  Gray,
+  LightBlack,
+  White,
+} from '../../../../assets/colors/colors';
 
 export const MainDailyWeatherWrapper = styled.div`
   max-width: 400px;
@@ -11,38 +17,45 @@ export const MainDailyWeatherWrapper = styled.div`
   border-radius: 20px;
   padding: 15px 30px;
   height: 200px;
-`;
+  transition: background 0.3s ease-in;
+  background: ${(props) => (props.changeTheme ? `${LightBlack}` : `${White}`)};
 
-export const DailyWeatherWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  .dailyWeatherCardInfo {
+  .dailyWeatherWrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 
-    h1 {
-      color: ${DodgerBlue};
+    .dailyWeatherCardInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        color: ${DodgerBlue};
+      }
+
+      h3 {
+        transition: color 0.3s ease-in;
+        color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
+      }
     }
 
-    p {
-      font-size: 25px;
-    }
-  }
-  .dailyWeatherItem {
-    display: flex;
-    align-items: center;
+    .dailyWeatherItem {
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease-in;
+      color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
 
-    p {
-      color: ${Gray};
-      margin-right: 5px;
-    }
+      p {
+        margin-right: 5px;
+        transition: color 0.3s ease-in;
+        color: ${(props) => (props.changeTheme ? `${DarkGray}` : `${Gray}`)};
+      }
 
-    sup {
-      margin-left: 3px;
-      font-weight: bold;
-      font-size: 13px;
+      sup {
+        margin-left: 3px;
+        font-weight: bold;
+        font-size: 13px;
+      }
     }
   }
 `;

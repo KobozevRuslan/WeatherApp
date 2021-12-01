@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-import { Gray } from '../../../../assets/colors/colors';
+import {
+  Black,
+  DarkGray,
+  Gray,
+  LightBlack,
+  White,
+} from '../../../../assets/colors/colors';
 
 export const MainDetailsDailyWeatherWrapper = styled.div`
   position: relative;
@@ -11,6 +17,8 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
   border-radius: 20px;
   padding: 15px 30px;
   height: 200px;
+  transition: background 0.3s ease-in;
+  background: ${(props) => (props.changeTheme ? `${LightBlack}` : `${White}`)};
 
   .detailsDailyItems {
     display: flex;
@@ -24,6 +32,8 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
       width: 30px;
       border-radius: 50%;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+      transition: background 0.3s ease-in;
+      background: ${(props) => (props.changeTheme ? `${White}` : '')};
     }
 
     img {
@@ -36,12 +46,15 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
       width: 100%;
       text-transform: capitalize;
       margin: 0 10px;
-      color: ${Gray};
+      transition: color 0.3s ease-in;
+      color: ${(props) => (props.changeTheme ? `${DarkGray}` : `${Gray}`)};
     }
 
     span {
       position: relative;
       z-index: 99;
+      transition: color 0.3s ease-in;
+      color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
     }
   }
 

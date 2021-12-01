@@ -1,9 +1,8 @@
-import React, { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchData } from '../store/thunk/action/app';
 
-import Loading from './loading/Loading';
 import Header from './header/Header';
 import Main from './main/Main';
 
@@ -11,6 +10,7 @@ import { MainAppWrapper } from './styledComponents/App';
 import GlobalStyle from '../styledComponents/GlobalStyle';
 
 const App = () => {
+  const theme = useSelector((state) => state.app.theme);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,13 +18,11 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <MainAppWrapper>
-        <Header />
-        <Main />
-        <GlobalStyle />
-      </MainAppWrapper>
-    </Suspense>
+    <MainAppWrapper>
+      <Header />
+      <Main />
+      <GlobalStyle changeTheme={theme} />
+    </MainAppWrapper>
   );
 };
 
