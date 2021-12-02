@@ -1,7 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeLang, changeTheme } from '../../store/thunk/action/app';
+import {
+  changeLang,
+  changeModal,
+  changeTheme,
+} from '../../store/thunk/action/app';
 
 import dropIcon from '../../assets/image/dropIcon.png';
 import russiaFlagIcon from '../../assets/image/russiaFlagIcon.png';
@@ -12,9 +16,11 @@ import { BtnWrapper } from './styledComponents/CustomButton';
 const CustomButton = () => {
   const theme = useSelector((state) => state.app.theme);
   const dispatch = useDispatch();
-
   return (
     <BtnWrapper changeTheme={theme}>
+      <div className="imageCircle">
+        <button onClick={() => dispatch(changeModal())}>modal</button>
+      </div>
       <div className="imageCircle">
         <img
           src={dropIcon}

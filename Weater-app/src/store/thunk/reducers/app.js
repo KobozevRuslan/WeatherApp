@@ -3,6 +3,7 @@ import {
   APP_CHANGE_THEME,
   APP_FETCH_DATA_START,
   APP_FETCH_DATA_SUCCESS,
+  APP_CHANGE_MODAL,
 } from '../actionType';
 
 export const initialState = {
@@ -28,6 +29,7 @@ export const initialState = {
   lang: 'eng',
   isLoading: true,
   theme: false,
+  modal: false,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -53,6 +55,11 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         theme: !state.theme,
+      };
+    case APP_CHANGE_MODAL:
+      return {
+        ...state,
+        modal: !state.modal,
       };
     default:
       return state;

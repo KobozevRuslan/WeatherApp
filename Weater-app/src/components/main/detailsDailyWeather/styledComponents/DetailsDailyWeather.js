@@ -52,7 +52,7 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
 
     span {
       position: relative;
-      z-index: 99;
+      z-index: 2;
       transition: color 0.3s ease-in;
       color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
     }
@@ -60,7 +60,7 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
 
   .cloud_image {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     top: 0;
     right: 0;
   }

@@ -4,6 +4,7 @@ import {
   APP_FETCH_DATA_ERROR,
   APP_CHANGE_LANG,
   APP_CHANGE_THEME,
+  APP_CHANGE_MODAL,
 } from '../actionType';
 
 import ApiWeather from '../../../service/Api';
@@ -18,6 +19,8 @@ const fetchDataError = () => ({ type: APP_FETCH_DATA_ERROR });
 export const changeLang = (payload) => ({ type: APP_CHANGE_LANG, payload });
 
 export const changeTheme = () => ({ type: APP_CHANGE_THEME });
+
+export const changeModal = () => ({ type: APP_CHANGE_MODAL });
 
 export const fetchData = (city) => {
   return async (dispatch) => {

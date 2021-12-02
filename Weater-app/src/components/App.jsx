@@ -5,6 +5,7 @@ import { fetchData } from '../store/thunk/action/app';
 
 import Header from './header/Header';
 import Main from './main/Main';
+import Modal from './modal/Modal';
 
 import { MainAppWrapper } from './styledComponents/App';
 import GlobalStyle from '../styledComponents/GlobalStyle';
@@ -21,6 +22,7 @@ const App = () => {
     <MainAppWrapper>
       <Header />
       <Main />
+      <Modal />
       <GlobalStyle changeTheme={theme} />
     </MainAppWrapper>
   );
