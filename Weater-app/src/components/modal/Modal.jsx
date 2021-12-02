@@ -5,7 +5,8 @@ import { changeModal } from '../../store/thunk/action/app';
 import { ModalWrapper } from './styledComponents/Modal';
 
 const Modal = () => {
-  const modal = useSelector((state) => state.app.modal);
+  const state = useSelector((state) => state.app);
+  const { modal, history } = state;
   const dispatch = useDispatch();
 
   return (
@@ -14,7 +15,18 @@ const Modal = () => {
         className="modal_content"
         changeModal={modal}
         onClick={(e) => e.stopPropagation()}
-      ></div>
+      >
+        <h2>Your history search</h2>
+        {history
+          .map((city) => {
+            return (
+              <ul>
+                <li>{city}</li>
+              </ul>
+            );
+          })
+          .splice(0, 10)}
+      </div>
     </ModalWrapper>
   );
 };

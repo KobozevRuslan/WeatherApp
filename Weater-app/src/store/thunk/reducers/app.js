@@ -4,6 +4,7 @@ import {
   APP_FETCH_DATA_START,
   APP_FETCH_DATA_SUCCESS,
   APP_CHANGE_MODAL,
+  APP_ADD_CITY,
 } from '../actionType';
 
 export const initialState = {
@@ -30,6 +31,7 @@ export const initialState = {
   isLoading: true,
   theme: false,
   modal: false,
+  history: [],
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -60,6 +62,13 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         modal: !state.modal,
+      };
+    case APP_ADD_CITY:
+      const newHistory = [...state.history];
+      newHistory.push(payload);
+      return {
+        ...state,
+        history: newHistory,
       };
     default:
       return state;

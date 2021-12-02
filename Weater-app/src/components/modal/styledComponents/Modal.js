@@ -19,9 +19,9 @@ export const ModalWrapper = styled.div`
     padding: 20px;
     border-radius: 12px;
     background: white;
-    height: 200px;
     width: 400px;
     transform: ${(props) => (props.changeModal ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
+    text-align: center;
   }
 `;
