@@ -1,9 +1,34 @@
 import styled from 'styled-components';
 
-import { DarkGray } from '../../../assets/colors/colors';
+import {
+  Black,
+  DarkGray,
+  DodgerBlue,
+  LightBlack,
+  White,
+} from '../../../assets/colors/colors';
 
 export const BtnWrapper = styled.div`
   display: flex;
+  align-items: center;
+
+  .btn {
+    font-size: 22px;
+    padding: 7px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    background: ${(props) =>
+      props.changeTheme ? `${LightBlack}` : `${White}`};
+    border-radius: 8px;
+    color: ${(props) => (props.changeTheme ? `${DarkGray}` : `${Black}`)};
+    transition: all 0.2s ease;
+    :hover {
+      background: ${(props) =>
+        props.changeTheme ? `${LightBlack}` : `${DodgerBlue}`};
+      color: ${White};
+    }
+  }
 
   .imageCircle {
     display: flex;
@@ -16,7 +41,7 @@ export const BtnWrapper = styled.div`
 
     :hover {
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-      background: ${(props) => (props.changeTheme ? `${DarkGray}` : '')};
+      background: ${(props) => (props.changeTheme ? `${DarkGray}` : 'none')};
     }
 
     img {

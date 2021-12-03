@@ -23,5 +23,13 @@ export const ModalWrapper = styled.div`
     transform: ${(props) => (props.changeModal ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
     text-align: center;
+
+    .modal_list {
+      list-style: none;
+
+      .modal_list_item {
+        padding: 10px;
+      }
+    }
   }
 `;

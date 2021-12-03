@@ -16,11 +16,12 @@ import { BtnWrapper } from './styledComponents/CustomButton';
 const CustomButton = () => {
   const theme = useSelector((state) => state.app.theme);
   const dispatch = useDispatch();
+
   return (
     <BtnWrapper changeTheme={theme}>
-      <div className="imageCircle">
-        <button onClick={() => dispatch(changeModal())}>modal</button>
-      </div>
+      <button className="btn" onClick={() => dispatch(changeModal())}>
+        history
+      </button>
       <div className="imageCircle">
         <img
           src={dropIcon}

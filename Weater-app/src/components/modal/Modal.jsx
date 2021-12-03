@@ -9,6 +9,10 @@ const Modal = () => {
   const { modal, history } = state;
   const dispatch = useDispatch();
 
+  if (history.length >= 11) {
+    history.shift();
+  }
+
   return (
     <ModalWrapper changeModal={modal} onClick={() => dispatch(changeModal())}>
       <div
@@ -16,16 +20,12 @@ const Modal = () => {
         changeModal={modal}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2>Your history search</h2>
-        {history
-          .map((city) => {
-            return (
-              <ul>
-                <li>{city}</li>
-              </ul>
-            );
-          })
-          .splice(0, 10)}
+        <h2>Search history</h2>
+        <ul className="modal_list">
+          {history.map((city) => {
+            return <li className="modal_list_item">{city}</li>;
+          })}
+        </ul>
       </div>
     </ModalWrapper>
   );

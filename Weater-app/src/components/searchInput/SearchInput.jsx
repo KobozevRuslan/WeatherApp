@@ -55,14 +55,14 @@ const SearchInput = () => {
       />
       <ul className="autocomplete">
         {value && isOpen
-          ? filteredCities.map((citie, index) => {
+          ? filteredCities.map((city, index) => {
               return (
                 <li
                   className="autocompelete_item"
                   key={index}
                   onClick={itemOnClickHandler}
                 >
-                  {citie.name}
+                  {city.name}
                 </li>
               );
             })
