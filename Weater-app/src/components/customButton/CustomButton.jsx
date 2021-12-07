@@ -2,9 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  changeLang,
-  changeModal,
-  changeTheme,
+  togglehModal,
+  toggleLang,
+  toggleTheme,
 } from '../../store/thunk/action/app';
 
 import dropIcon from '../../assets/image/dropIcon.png';
@@ -18,29 +18,29 @@ const CustomButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <BtnWrapper changeTheme={theme}>
-      <button className="btn" onClick={() => dispatch(changeModal())}>
+    <BtnWrapper switchTheme={theme}>
+      <button className="btn" onClick={() => dispatch(togglehModal())}>
         history
       </button>
       <div className="imageCircle">
         <img
           src={dropIcon}
           alt="dropIcon"
-          onClick={() => dispatch(changeTheme())}
+          onClick={() => dispatch(toggleTheme())}
         />
       </div>
       <div className="imageCircle">
         <img
           src={russiaFlagIcon}
           alt="russiaFlagIcon"
-          onClick={() => dispatch(changeLang('ru'))}
+          onClick={() => dispatch(toggleLang('ru'))}
         />
       </div>
       <div className="imageCircle">
         <img
           src={unitedKingdomFlagIcon}
           alt="unitedKingdomFlagIcon"
-          onClick={() => dispatch(changeLang('eng'))}
+          onClick={() => dispatch(toggleLang('eng'))}
         />
       </div>
     </BtnWrapper>

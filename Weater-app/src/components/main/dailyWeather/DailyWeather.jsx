@@ -10,7 +10,7 @@ const DailyWeather = () => {
   const { weather, isLoading, lang, theme } = state;
 
   return (
-    <MainDailyWeatherWrapper changeTheme={theme}>
+    <MainDailyWeatherWrapper switchTheme={theme}>
       {isLoading ? (
         <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
       ) : (

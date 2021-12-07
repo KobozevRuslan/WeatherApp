@@ -21,9 +21,9 @@ export const SearchWrapper = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     transition: all 0.3s ease-in;
-    color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
+    color: ${(props) => (props.switchTheme ? `${White}` : `${Black}`)};
     background: ${(props) =>
-      props.changeTheme ? `${LightBlack}` : `${White}`};
+      props.switchTheme ? `${LightBlack}` : `${White}`};
     outline: none;
   }
 
@@ -48,7 +48,7 @@ export const SearchWrapper = styled.div`
       :hover {
         color: white;
         background: ${(props) =>
-          props.changeTheme ? `${LightBlack}` : `${DodgerBlue}`};
+          props.switchTheme ? `${LightBlack}` : `${DodgerBlue}`};
         cursor: pointer;
         transition: cubic-bezier(1, 0, 0, 1) 0.3s all;
       }

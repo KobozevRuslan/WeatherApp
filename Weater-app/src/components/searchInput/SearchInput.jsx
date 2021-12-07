@@ -44,7 +44,7 @@ const SearchInput = () => {
   };
 
   return (
-    <SearchWrapper changeTheme={theme}>
+    <SearchWrapper switchTheme={theme}>
       <input
         className="searchInput"
         value={value}

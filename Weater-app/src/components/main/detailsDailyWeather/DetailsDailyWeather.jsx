@@ -16,7 +16,7 @@ const DetailsDailyWeather = () => {
   const { weather, isLoading, lang, theme } = state;
 
   return (
-    <MainDetailsDailyWeatherWrapper changeTheme={theme}>
+    <MainDetailsDailyWeatherWrapper switchTheme={theme}>
       {isLoading ? (
         <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
       ) : (
@@ -27,7 +27,7 @@ const DetailsDailyWeather = () => {
             </div>
             <p>{languegeObject[lang].mainePageWeather.temperature}: </p>
             <span>
-              {Math.floor(weather.main.temp && weather?.main.temp)}
+              {Math.floor(weather?.main.temp)}
               <sup>&deg;</sup> {languegeObject[lang].mainePageWeather.feel}{' '}
               {Math.floor(weather?.main.feels_like)}
               <sup>&deg;</sup>

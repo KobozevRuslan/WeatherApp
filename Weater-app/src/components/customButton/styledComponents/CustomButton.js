@@ -19,13 +19,13 @@ export const BtnWrapper = styled.div`
     border: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     background: ${(props) =>
-      props.changeTheme ? `${LightBlack}` : `${White}`};
+      props.switchTheme ? `${LightBlack}` : `${White}`};
     border-radius: 8px;
-    color: ${(props) => (props.changeTheme ? `${DarkGray}` : `${Black}`)};
+    color: ${(props) => (props.switchTheme ? `${DarkGray}` : `${Black}`)};
     transition: all 0.2s ease;
     :hover {
       background: ${(props) =>
-        props.changeTheme ? `${LightBlack}` : `${DodgerBlue}`};
+        props.switchTheme ? `${LightBlack}` : `${DodgerBlue}`};
       color: ${White};
     }
   }
@@ -41,7 +41,7 @@ export const BtnWrapper = styled.div`
 
     :hover {
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-      background: ${(props) => (props.changeTheme ? `${DarkGray}` : 'none')};
+      background: ${(props) => (props.switchTheme ? `${DarkGray}` : 'none')};
     }
 
     img {

@@ -18,7 +18,7 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
   padding: 15px 30px;
   height: 200px;
   transition: background 0.3s ease-in;
-  background: ${(props) => (props.changeTheme ? `${LightBlack}` : `${White}`)};
+  background: ${(props) => (props.switchTheme ? `${LightBlack}` : `${White}`)};
 
   .detailsDailyItems {
     display: flex;
@@ -33,7 +33,7 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
       border-radius: 50%;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
       transition: background 0.3s ease-in;
-      background: ${(props) => (props.changeTheme ? `${White}` : '')};
+      background: ${(props) => (props.switchTheme ? `${White}` : '')};
     }
 
     img {
@@ -47,14 +47,14 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
       text-transform: capitalize;
       margin: 0 10px;
       transition: color 0.3s ease-in;
-      color: ${(props) => (props.changeTheme ? `${DarkGray}` : `${Gray}`)};
+      color: ${(props) => (props.switchTheme ? `${DarkGray}` : `${Gray}`)};
     }
 
     span {
       position: relative;
       z-index: 2;
       transition: color 0.3s ease-in;
-      color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
+      color: ${(props) => (props.switchTheme ? `${White}` : `${Black}`)};
     }
   }
 
