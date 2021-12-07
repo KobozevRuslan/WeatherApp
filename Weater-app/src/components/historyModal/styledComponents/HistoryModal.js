@@ -32,6 +32,11 @@ export const ModalWrapper = styled.div`
     transition: 0.4s all;
     text-align: center;
 
+    .btn_wrapper {
+      display: flex;
+      justify-content: end;
+    }
+
     .btn {
       margin-top: 10px;
       font-size: 18px;

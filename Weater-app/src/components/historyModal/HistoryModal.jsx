@@ -25,13 +25,15 @@ const HistoryModal = () => {
     >
       <div
         className="modal_content"
-        test={modal}
+        switchModal={modal}
         onClick={(e) => e.stopPropagation()}
       >
         <h2>Search history</h2>
-        <button className="btn" onClick={onOrderChange}>
-          Sort by weather
-        </button>
+        <div className="btn_wrapper">
+          <button className="btn" onClick={onOrderChange}>
+            Sort by weather
+          </button>
+        </div>
         {history.map((items) => {
           return (
             <ul key={items.city} className="modal_list">
