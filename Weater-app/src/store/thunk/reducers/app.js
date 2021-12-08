@@ -30,14 +30,9 @@ export const initialState = {
   },
   lang: 'eng',
   isLoading: true,
-  theme: false,
+  isBlackTheme: false,
   modal: false,
-  history: [
-    {
-      city: '',
-      weather: '',
-    },
-  ],
+  history: [],
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -62,7 +57,7 @@ export const appReducer = (state = initialState, action) => {
     case APP_TOGGLE_THEME:
       return {
         ...state,
-        theme: !state.theme,
+        isBlackTheme: !state.isBlackTheme,
       };
     case APP_TOGGLE_MODAL:
       return {
@@ -72,13 +67,17 @@ export const appReducer = (state = initialState, action) => {
     case APP_ADD_HISTORY:
       return {
         ...state,
-        history: state.history.concat(payload),
+        history: state.history.concat([payload]),
       };
-      case APP_SORT:
+    case APP_SORT:
       return {
         ...state,
-        history: [...state.history.sort((a, b) => payload ? a.weather - b.weather : b.weather - a.weather)]
-      }
+        history: [
+          ...state.history.sort((a, b) =>
+            payload ? a.weather - b.weather : b.weather - a.weather
+          ),
+        ],
+      };
     default:
       return state;
   }

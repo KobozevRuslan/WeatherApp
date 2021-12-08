@@ -13,7 +13,7 @@ const SearchInput = () => {
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.app);
-  const { lang, theme } = state;
+  const { lang, isBlackTheme } = state;
 
   const filteredCities = cities
     .filter((cities) => {
@@ -44,7 +44,7 @@ const SearchInput = () => {
   };
 
   return (
-    <SearchWrapper blackTheme={theme}>
+    <SearchWrapper blackTheme={isBlackTheme}>
       <input
         className="searchInput"
         value={value}

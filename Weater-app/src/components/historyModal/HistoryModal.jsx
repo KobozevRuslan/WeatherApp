@@ -9,8 +9,10 @@ const HistoryModal = () => {
   const [orderAsc, setOrderAsc] = useState(true);
 
   const state = useSelector((state) => state.app);
-  const { modal, history, theme } = state;
+  const { modal, history, isBlackTheme } = state;
   const dispatch = useDispatch();
+
+  console.log('history', history);
 
   const onOrderChange = () => {
     setOrderAsc(!orderAsc);
@@ -19,7 +21,7 @@ const HistoryModal = () => {
 
   return (
     <ModalWrapper
-      blackTheme={theme}
+      blackTheme={isBlackTheme}
       switchModal={modal}
       onClick={() => dispatch(togglehModal())}
     >

@@ -13,10 +13,10 @@ import { MainDetailsDailyWeatherWrapper } from './styledComponents/DetailsDailyW
 
 const DetailsDailyWeather = () => {
   const state = useSelector((state) => state.app);
-  const { weather, isLoading, lang, theme } = state;
+  const { weather, isLoading, lang, isBlackTheme } = state;
 
   return (
-    <MainDetailsDailyWeatherWrapper blackTheme={theme}>
+    <MainDetailsDailyWeatherWrapper blackTheme={isBlackTheme}>
       {isLoading ? (
         <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
       ) : (

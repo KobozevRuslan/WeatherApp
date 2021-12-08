@@ -63,7 +63,6 @@ export const ModalWrapper = styled.div`
 
       li {
         padding: 10px;
-        border: 1px solid black;
       }
     }
   }

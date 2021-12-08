@@ -11,7 +11,7 @@ import { MainAppWrapper } from './styledComponents/App';
 import GlobalStyle from '../styledComponents/GlobalStyle';
 
 const App = () => {
-  const theme = useSelector((state) => state.app.theme);
+  const isBlackTheme = useSelector((state) => state.app.isBlackTheme);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const App = () => {
       <Header />
       <Main />
       <HistoryModal />
-      <GlobalStyle blackTheme={theme} />
+      <GlobalStyle blackTheme={isBlackTheme} />
     </MainAppWrapper>
   );
 };
