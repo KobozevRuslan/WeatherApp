@@ -45,13 +45,13 @@ export const ModalWrapper = styled.div`
       border: none;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
       background: ${(props) =>
-        props.switchTheme ? `${LightBlack}` : `${White}`};
+        props.blackTheme ? `${LightBlack}` : `${White}`};
       border-radius: 8px;
-      color: ${(props) => (props.switchTheme ? `${DarkGray}` : `${Black}`)};
+      color: ${(props) => (props.blackTheme ? `${DarkGray}` : `${Black}`)};
       transition: all 0.2s ease;
       :hover {
         background: ${(props) =>
-          props.switchTheme ? `${LightBlack}` : `${DodgerBlue}`};
+          props.blackTheme ? `${LightBlack}` : `${DodgerBlue}`};
         color: ${White};
       }
     }
@@ -63,6 +63,7 @@ export const ModalWrapper = styled.div`
 
       li {
         padding: 10px;
+        border: 1px solid black;
       }
     }
   }

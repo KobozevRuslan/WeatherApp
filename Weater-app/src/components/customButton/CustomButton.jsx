@@ -18,7 +18,7 @@ const CustomButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <BtnWrapper switchTheme={theme}>
+    <BtnWrapper blackTheme={theme}>
       <button className="btn" onClick={() => dispatch(togglehModal())}>
         history
       </button>

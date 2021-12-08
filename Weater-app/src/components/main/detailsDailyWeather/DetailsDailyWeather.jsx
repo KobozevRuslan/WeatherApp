@@ -16,7 +16,7 @@ const DetailsDailyWeather = () => {
   const { weather, isLoading, lang, theme } = state;
 
   return (
-    <MainDetailsDailyWeatherWrapper switchTheme={theme}>
+    <MainDetailsDailyWeatherWrapper blackTheme={theme}>
       {isLoading ? (
         <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
       ) : (

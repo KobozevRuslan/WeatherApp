@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'M PLUS 2', sans-serif;
 		font-size: 18px;
     transition: background 0.3s ease-in;
-    background: ${(props) => (props.switchTheme ? `${Black}` : `${White}`)};
+    background: ${(props) => (props.blackTheme ? `${Black}` : `${White}`)};
 	}
 `;
 

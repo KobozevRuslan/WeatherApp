@@ -23,7 +23,7 @@ const App = () => {
       <Header />
       <Main />
       <HistoryModal />
-      <GlobalStyle switchTheme={theme} />
+      <GlobalStyle blackTheme={theme} />
     </MainAppWrapper>
   );
 };

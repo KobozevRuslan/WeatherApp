@@ -18,7 +18,7 @@ export const MainDailyWeatherWrapper = styled.div`
   padding: 15px 30px;
   height: 200px;
   transition: background 0.3s ease-in;
-  background: ${(props) => (props.switchTheme ? `${LightBlack}` : `${White}`)};
+  background: ${(props) => (props.blackTheme ? `${LightBlack}` : `${White}`)};
 
   .dailyWeatherWrapper {
     display: flex;
@@ -35,7 +35,7 @@ export const MainDailyWeatherWrapper = styled.div`
 
       h3 {
         transition: color 0.3s ease-in;
-        color: ${(props) => (props.switchTheme ? `${White}` : `${Black}`)};
+        color: ${(props) => (props.blackTheme ? `${White}` : `${Black}`)};
       }
     }
 
@@ -43,12 +43,12 @@ export const MainDailyWeatherWrapper = styled.div`
       display: flex;
       align-items: center;
       transition: color 0.3s ease-in;
-      color: ${(props) => (props.switchTheme ? `${White}` : `${Black}`)};
+      color: ${(props) => (props.blackTheme ? `${White}` : `${Black}`)};
 
       p {
         margin-right: 5px;
         transition: color 0.3s ease-in;
-        color: ${(props) => (props.switchTheme ? `${DarkGray}` : `${Gray}`)};
+        color: ${(props) => (props.blackTheme ? `${DarkGray}` : `${Gray}`)};
       }
 
       sup {
