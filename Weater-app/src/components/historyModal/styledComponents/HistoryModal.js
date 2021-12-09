@@ -24,7 +24,7 @@ export const blackTheme = {
   },
 };
 
-export const ModalWrapper = styled.div`
+export const HistoryModalWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
@@ -39,7 +39,7 @@ export const ModalWrapper = styled.div`
   pointer-events: ${(props) => (props.switchModal ? 'all' : 'none')};
   transition: 0.2s;
 
-  .modal_content {
+  .history_modal_content {
     padding: 20px;
     border-radius: 12px;
     background: ${White};
@@ -47,36 +47,37 @@ export const ModalWrapper = styled.div`
     transform: ${(props) => (props.switchModal ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 
-    .btn_wrapper {
-      display: flex;
-      justify-content: end;
-    }
-
-    .btn {
+    .history_modal_table {
       margin-top: 10px;
-      font-size: 18px;
-      padding: 7px;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-      background: ${(props) => props.theme.btn.background};
-      border-radius: 8px;
-      color: ${(props) => props.theme.btn.color};
-      transition: all 0.2s ease;
-      :hover {
-        background: ${(props) => props.theme.btn.backgroundHover};
-        color: ${White};
+      border-collapse: collapse;
+      width: 100%;
+
+      .activeTh {
+        cursor: pointer;
+        border-radius: 8px 8px 0 0;
+        :hover {
+          background: ${(props) => props.theme.btn.backgroundHover};
+          color: ${White};
+        }
       }
-    }
 
-    .modal_list {
-      display: flex;
-      justify-content: space-around;
-      list-style: none;
-
-      li {
+      th {
         padding: 10px;
+        border-bottom: 2px solid black;
+        transition: all 0.2s ease;
+      }
+
+      td {
+        padding: 10px;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        border-color: black;
+        :last-child {
+          border-width: 0 0px 1px 0;
+        }
       }
     }
   }

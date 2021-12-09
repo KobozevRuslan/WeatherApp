@@ -12,13 +12,15 @@ import {
 
 const DailyWeather = () => {
   const state = useSelector((state) => state.app);
-  const { weather, isLoading, lang, isBlackTheme } = state;
+  const { weather, isLoading, lang, isBlackTheme, isError } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <MainDailyWeatherWrapper>
         {isLoading ? (
           <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
+        ) : isError ? (
+          <h2>{languegeObject[lang].mainePageWeather.error}</h2>
         ) : (
           <div className="dailyWeatherWrapper">
             <div>

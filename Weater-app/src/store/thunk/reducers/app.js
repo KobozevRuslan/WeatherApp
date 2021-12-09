@@ -6,6 +6,7 @@ import {
   APP_TOGGLE_MODAL,
   APP_ADD_HISTORY,
   APP_SORT,
+  APP_FETCH_DATA_ERROR,
 } from '../actionType';
 
 export const initialState = {
@@ -32,6 +33,7 @@ export const initialState = {
   isLoading: true,
   isBlackTheme: false,
   isModal: false,
+  isError: false,
   history: [],
 };
 
@@ -42,12 +44,21 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+        isError: false,
       };
     case APP_FETCH_DATA_SUCCESS:
       return {
         ...state,
         weather: payload,
         isLoading: false,
+        isError: false,
+      };
+    case APP_FETCH_DATA_ERROR:
+      return {
+        ...state,
+        weather: payload,
+        isLoading: false,
+        isError: true,
       };
     case APP_TOGGLE_LANG:
       return {

@@ -7,7 +7,7 @@ import { togglehModal, sortHandler } from '../../store/thunk/action/app';
 import {
   blackTheme,
   lightTheme,
-  ModalWrapper,
+  HistoryModalWrapper,
 } from './styledComponents/HistoryModal';
 
 const HistoryModal = () => {
@@ -24,30 +24,33 @@ const HistoryModal = () => {
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
-      <ModalWrapper
+      <HistoryModalWrapper
         switchModal={isModal}
         onClick={() => dispatch(togglehModal())}
       >
         <div
-          className="modal_content"
+          className="history_modal_content"
           onClick={(e) => e.stopPropagation()}
         >
           <h2>Search history</h2>
-          <div className="btn_wrapper">
-            <button className="btn" onClick={onOrderChange}>
-              Sort by weather
-            </button>
-          </div>
-          {history.map((items) => {
-            return (
-              <ul key={items.city} className="modal_list">
-                <li>{items.city}</li>
-                <li>{items.weather}</li>
-              </ul>
-            );
-          })}
+          <table className="history_modal_table">
+            <tr>
+              <th>City</th>
+              <th className="activeTh" onClick={onOrderChange}>
+                Weather
+              </th>
+            </tr>
+            {history.map((items) => {
+              return (
+                <tr key={items.city}>
+                  <td>{items.city}</td>
+                  <td>{items.weather}</td>
+                </tr>
+              );
+            })}
+          </table>
         </div>
-      </ModalWrapper>
+      </HistoryModalWrapper>
     </ThemeProvider>
   );
 };

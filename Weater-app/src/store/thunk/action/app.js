@@ -32,7 +32,7 @@ export const fetchData = (city) => {
       dispatch(fetchDataSuccess(data));
       dispatch(addHistory({ city: city, weather: Math.floor(data.main.temp) }));
     } catch (e) {
-      dispatch(fetchDataError(e));
+      dispatch(fetchDataError(e.data));
     }
   };
 };

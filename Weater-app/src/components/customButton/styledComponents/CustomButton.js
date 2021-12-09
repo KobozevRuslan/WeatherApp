@@ -26,7 +26,7 @@ export const blackTheme = {
     backgroundHover: `${LightBlack}`,
   },
   imageCircle: {
-    backgroundHover: `${DarkGray}`,
+    backgroundHover: `${LightBlack}`,
   },
 };
 

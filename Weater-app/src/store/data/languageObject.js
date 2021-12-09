@@ -3,6 +3,7 @@ export const languegeObject = {
     placeholder: 'Write city...and press enter please',
     mainePageWeather: {
       loading: 'Loading please wait...',
+      error: 'Wrong city, please enter correct city',
       today: 'Today',
       city: 'City',
       temperature: 'temperature',
@@ -16,6 +17,7 @@ export const languegeObject = {
     placeholder: 'Напишите город...и нажмите Enter',
     mainePageWeather: {
       loading: 'Загрузка, подождите пожалуйста...',
+      error: 'Не верный город, пожалуйста введите правильный город',
       today: 'Сегодня',
       city: 'Город',
       temperature: 'температура',
