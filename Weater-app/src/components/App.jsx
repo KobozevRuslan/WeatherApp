@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
 import { fetchData } from '../store/thunk/action/app';
 
@@ -8,7 +9,11 @@ import Main from './main/Main';
 import HistoryModal from './historyModal/HistoryModal';
 
 import { MainAppWrapper } from './styledComponents/App';
-import GlobalStyle from '../styledComponents/GlobalStyle';
+
+import GlobalStyle, {
+  blackTheme,
+  lightTheme,
+} from '../styledComponents/GlobalStyle';
 
 const App = () => {
   const isBlackTheme = useSelector((state) => state.app.isBlackTheme);
@@ -19,12 +24,14 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <MainAppWrapper>
-      <Header />
-      <Main />
-      <HistoryModal />
-      <GlobalStyle blackTheme={isBlackTheme} />
-    </MainAppWrapper>
+    <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
+      <MainAppWrapper>
+        <Header />
+        <Main />
+        <HistoryModal />
+        <GlobalStyle blackTheme={isBlackTheme} />
+      </MainAppWrapper>
+    </ThemeProvider>
   );
 };
 

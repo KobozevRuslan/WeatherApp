@@ -8,6 +8,22 @@ import {
   White,
 } from '../../../assets/colors/colors';
 
+export const lightTheme = {
+  btn: {
+    background: `${White}`,
+    color: `${Black}`,
+    backgroundHover: `${DodgerBlue}`,
+  },
+};
+
+export const blackTheme = {
+  btn: {
+    background: `${LightBlack}`,
+    color: `${DarkGray}`,
+    backgroundHover: `${LightBlack}`,
+  },
+};
+
 export const ModalWrapper = styled.div`
   width: 100vw;
   height: 100vh;
@@ -26,7 +42,7 @@ export const ModalWrapper = styled.div`
   .modal_content {
     padding: 20px;
     border-radius: 12px;
-    background: white;
+    background: ${White};
     width: 400px;
     transform: ${(props) => (props.switchModal ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
@@ -44,14 +60,12 @@ export const ModalWrapper = styled.div`
       cursor: pointer;
       border: none;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-      background: ${(props) =>
-        props.blackTheme ? `${LightBlack}` : `${White}`};
+      background: ${(props) => props.theme.btn.background};
       border-radius: 8px;
-      color: ${(props) => (props.blackTheme ? `${DarkGray}` : `${Black}`)};
+      color: ${(props) => props.theme.btn.color};
       transition: all 0.2s ease;
       :hover {
-        background: ${(props) =>
-          props.blackTheme ? `${LightBlack}` : `${DodgerBlue}`};
+        background: ${(props) => props.theme.btn.backgroundHover};
         color: ${White};
       }
     }

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
 import { togglehModal, sortHandler } from '../../store/thunk/action/app';
 
-import { ModalWrapper } from './styledComponents/HistoryModal';
+import {
+  blackTheme,
+  lightTheme,
+  ModalWrapper,
+} from './styledComponents/HistoryModal';
 
 const HistoryModal = () => {
   const [orderAsc, setOrderAsc] = useState(true);
@@ -18,32 +23,33 @@ const HistoryModal = () => {
   };
 
   return (
-    <ModalWrapper
-      blackTheme={isBlackTheme}
-      switchModal={modal}
-      onClick={() => dispatch(togglehModal())}
-    >
-      <div
-        className="modal_content"
+    <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
+      <ModalWrapper
         switchModal={modal}
-        onClick={(e) => e.stopPropagation()}
+        onClick={() => dispatch(togglehModal())}
       >
-        <h2>Search history</h2>
-        <div className="btn_wrapper">
-          <button className="btn" onClick={onOrderChange}>
-            Sort by weather
-          </button>
+        <div
+          className="modal_content"
+          // switchModal={modal}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h2>Search history</h2>
+          <div className="btn_wrapper">
+            <button className="btn" onClick={onOrderChange}>
+              Sort by weather
+            </button>
+          </div>
+          {history.map((items) => {
+            return (
+              <ul key={items.city} className="modal_list">
+                <li>{items.city}</li>
+                <li>{items.weather}</li>
+              </ul>
+            );
+          })}
         </div>
-        {history.map((items) => {
-          return (
-            <ul key={items.city} className="modal_list">
-              <li>{items.city}</li>
-              <li>{items.weather}</li>
-            </ul>
-          );
-        })}
-      </div>
-    </ModalWrapper>
+      </ModalWrapper>
+    </ThemeProvider>
   );
 };
 

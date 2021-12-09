@@ -8,6 +8,28 @@ import {
   White,
 } from '../../../assets/colors/colors';
 
+export const lightTheme = {
+  btn: {
+    background: `${White}`,
+    color: `${Black}`,
+    backgroundHover: `${DodgerBlue}`,
+  },
+  imageCircle: {
+    backgroundHover: 'none',
+  },
+};
+
+export const blackTheme = {
+  btn: {
+    background: `${LightBlack}`,
+    color: `${DarkGray}`,
+    backgroundHover: `${LightBlack}`,
+  },
+  imageCircle: {
+    backgroundHover: `${DarkGray}`,
+  },
+};
+
 export const BtnWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -18,14 +40,12 @@ export const BtnWrapper = styled.div`
     cursor: pointer;
     border: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    background: ${(props) =>
-      props.blackTheme ? `${LightBlack}` : `${White}`};
+    background: ${(props) => props.theme.btn.background};
     border-radius: 8px;
-    color: ${(props) => (props.blackTheme ? `${DarkGray}` : `${Black}`)};
+    color: ${(props) => props.theme.btn.color};
     transition: all 0.2s ease;
     :hover {
-      background: ${(props) =>
-        props.blackTheme ? `${LightBlack}` : `${DodgerBlue}`};
+      background: ${(props) => props.theme.btn.backgroundHover};
       color: ${White};
     }
   }
@@ -41,7 +61,7 @@ export const BtnWrapper = styled.div`
 
     :hover {
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-      background: ${(props) => (props.blackTheme ? `${DarkGray}` : 'none')};
+      background: ${(props) => props.theme.imageCircle.backgroundHover};
     }
 
     img {
