@@ -14,7 +14,7 @@ const HistoryModal = () => {
   const [orderAsc, setOrderAsc] = useState(true);
 
   const state = useSelector((state) => state.app);
-  const { modal, history, isBlackTheme } = state;
+  const { isModal, history, isBlackTheme } = state;
   const dispatch = useDispatch();
 
   const onOrderChange = () => {
@@ -25,12 +25,11 @@ const HistoryModal = () => {
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <ModalWrapper
-        switchModal={modal}
+        switchModal={isModal}
         onClick={() => dispatch(togglehModal())}
       >
         <div
           className="modal_content"
-          // switchModal={modal}
           onClick={(e) => e.stopPropagation()}
         >
           <h2>Search history</h2>

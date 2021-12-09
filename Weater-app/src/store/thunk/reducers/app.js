@@ -31,7 +31,7 @@ export const initialState = {
   lang: 'eng',
   isLoading: true,
   isBlackTheme: false,
-  modal: false,
+  isModal: false,
   history: [],
 };
 
@@ -62,7 +62,7 @@ export const appReducer = (state = initialState, action) => {
     case APP_TOGGLE_MODAL:
       return {
         ...state,
-        modal: !state.modal,
+        isModal: !state.isModal,
       };
     case APP_ADD_HISTORY:
       return {
