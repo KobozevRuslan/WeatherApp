@@ -64,7 +64,7 @@ export const BtnWrapper = styled.div`
       background: ${(props) => props.theme.imageCircle.backgroundHover};
     }
 
-    img {
+    .iconBtn {
       width: 30px;
       height: 40px;
       padding: 5px 0;

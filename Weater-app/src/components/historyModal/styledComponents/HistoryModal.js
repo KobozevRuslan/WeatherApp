@@ -9,18 +9,32 @@ import {
 } from '../../../assets/colors/colors';
 
 export const lightTheme = {
+  history_modal_content: {
+    background: `${White}`,
+    color: `${Black}`,
+  },
   btn: {
     background: `${White}`,
     color: `${Black}`,
     backgroundHover: `${DodgerBlue}`,
   },
+  td: {
+    color: `${Black}`,
+  },
 };
 
 export const blackTheme = {
+  history_modal_content: {
+    background: `${LightBlack}`,
+    color: `${DarkGray}`,
+  },
   btn: {
     background: `${LightBlack}`,
     color: `${DarkGray}`,
-    backgroundHover: `${LightBlack}`,
+    backgroundHover: `${DarkGray}`,
+  },
+  td: {
+    color: `${White}`,
   },
 };
 
@@ -42,7 +56,9 @@ export const HistoryModalWrapper = styled.div`
   .history_modal_content {
     padding: 20px;
     border-radius: 12px;
-    background: ${White};
+    background: ${(props) => props.theme.history_modal_content.background};
+    color: ${(props) => props.theme.td.color};
+
     width: 400px;
     transform: ${(props) => (props.switchModal ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
@@ -68,6 +84,7 @@ export const HistoryModalWrapper = styled.div`
         padding: 10px;
         border-bottom: 2px solid black;
         transition: all 0.2s ease;
+        color: ${(props) => props.theme.history_modal_content.color};
       }
 
       td {
@@ -75,6 +92,7 @@ export const HistoryModalWrapper = styled.div`
         border-style: solid;
         border-width: 0 1px 1px 0;
         border-color: black;
+
         :last-child {
           border-width: 0 0px 1px 0;
         }

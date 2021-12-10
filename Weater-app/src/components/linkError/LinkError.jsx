@@ -2,35 +2,28 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { PathMain } from '../routePath';
 
 import { languegeObject } from '../../store/data/languageObject';
-
-import DailyWeather from './dailyWeather/DailyWeather';
-import DetailsDailyWeather from './detailsDailyWeather/DetailsDailyWeather';
+import { PathMain } from '../routePath';
 
 import {
   blackTheme,
   lightTheme,
-  MainCardWrapper,
-  LinkWrapper,
-} from './styledComponents/Main';
+  LinkErrorWrapper,
+} from './styledComponents/LinkError';
 
-const Main = () => {
+const LinkError = () => {
   const state = useSelector((state) => state.app);
   const { isBlackTheme, lang } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
-      <MainCardWrapper>
-        <DailyWeather />
-        <DetailsDailyWeather />
-      </MainCardWrapper>
-      <LinkWrapper>
+      <LinkErrorWrapper>
+        <h2>404</h2>
         <Link to={PathMain}>{languegeObject[lang].link.back}</Link>
-      </LinkWrapper>
+      </LinkErrorWrapper>
     </ThemeProvider>
   );
 };
 
-export default Main;
+export default LinkError;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
 import { togglehModal, sortHandler } from '../../store/thunk/action/app';
+import { languegeObject } from '../../store/data/languageObject';
 
 import {
   blackTheme,
@@ -14,7 +15,7 @@ const HistoryModal = () => {
   const [orderAsc, setOrderAsc] = useState(true);
 
   const state = useSelector((state) => state.app);
-  const { isModal, history, isBlackTheme } = state;
+  const { isModal, history, isBlackTheme, lang } = state;
   const dispatch = useDispatch();
 
   const onOrderChange = () => {
@@ -32,22 +33,25 @@ const HistoryModal = () => {
           className="history_modal_content"
           onClick={(e) => e.stopPropagation()}
         >
-          <h2>Search history</h2>
+          <h2>{languegeObject[lang].historyModalPage.header}</h2>
           <table className="history_modal_table">
-            <tr>
-              <th>City</th>
-              <th className="activeTh" onClick={onOrderChange}>
-                Weather
-              </th>
-            </tr>
-            {history.map((items) => {
-              return (
-                <tr key={items.city}>
-                  <td>{items.city}</td>
-                  <td>{items.weather}</td>
-                </tr>
-              );
-            })}
+            <tbody>
+              <tr>
+                <th>{languegeObject[lang].historyModalPage.city}</th>
+                <th className="activeTh" onClick={onOrderChange}>
+                  {languegeObject[lang].historyModalPage.temp}{' '}
+                  {orderAsc ? '^' : 'v'}
+                </th>
+              </tr>
+              {history.map((items) => {
+                return (
+                  <tr key={items.city}>
+                    <td>{items.city}</td>
+                    <td>{items.weather}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </HistoryModalWrapper>

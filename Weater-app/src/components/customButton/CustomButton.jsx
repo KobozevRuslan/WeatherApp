@@ -7,6 +7,7 @@ import {
   toggleLang,
   toggleTheme,
 } from '../../store/thunk/action/app';
+import { languegeObject } from '../../store/data/languageObject';
 
 import dropIcon from '../../assets/image/dropIcon.png';
 import russiaFlagIcon from '../../assets/image/russiaFlagIcon.png';
@@ -19,17 +20,19 @@ import {
 } from './styledComponents/CustomButton';
 
 const CustomButton = () => {
-  const isBlackTheme = useSelector((state) => state.app.isBlackTheme);
+  const state = useSelector((state) => state.app);
+  const { isBlackTheme, lang } = state;
   const dispatch = useDispatch();
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <BtnWrapper>
         <button className="btn" onClick={() => dispatch(togglehModal())}>
-          history
+          {languegeObject[lang].historyBtn}
         </button>
         <div className="imageCircle">
           <img
+            className="iconBtn"
             src={dropIcon}
             alt="dropIcon"
             onClick={() => dispatch(toggleTheme())}
@@ -37,6 +40,7 @@ const CustomButton = () => {
         </div>
         <div className="imageCircle">
           <img
+            className="iconBtn"
             src={russiaFlagIcon}
             alt="russiaFlagIcon"
             onClick={() => dispatch(toggleLang('ru'))}
@@ -44,6 +48,7 @@ const CustomButton = () => {
         </div>
         <div className="imageCircle">
           <img
+            className="iconBtn"
             src={unitedKingdomFlagIcon}
             alt="unitedKingdomFlagIcon"
             onClick={() => dispatch(toggleLang('eng'))}

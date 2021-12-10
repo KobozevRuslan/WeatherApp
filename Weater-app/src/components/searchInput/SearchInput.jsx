@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cities from 'cities.json';
 import { ThemeProvider } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { fetchData } from '../../store/thunk/action/app';
 import { languegeObject } from '../../store/data/languageObject';
+import { PathWeather } from '../routePath';
 
 import {
   blackTheme,
@@ -59,6 +61,7 @@ const SearchInput = () => {
           onChange={onChangeHandler}
           onClick={inputOnClickHandler}
         />
+        <Link to={PathWeather}>{languegeObject[lang].link.search}</Link>
         <ul className="autocomplete">
           {value && isOpen
             ? filteredCities.map((city, index) => {

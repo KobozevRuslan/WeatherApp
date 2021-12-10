@@ -24,20 +24,15 @@ export const blackTheme = {
   },
 };
 
-export const MainCardWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
-`;
-
-export const LinkWrapper = styled.div`
-  margin-top: 30px;
+export const LinkErrorWrapper = styled.div`
   text-align: center;
+
+  h2 {
+    margin-bottom: 50px;
+  }
 
   a {
     text-decoration: none;
-    margin-left: 10px;
     padding: 7px 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     background: ${(props) => props.theme.link.background};
