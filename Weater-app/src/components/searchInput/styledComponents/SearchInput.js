@@ -47,7 +47,8 @@ export const SearchWrapper = styled.div`
       padding: 10px;
       :hover {
         color: white;
-        background: ${DodgerBlue};
+        background: ${(props) =>
+          props.changeTheme ? `${LightBlack}` : `${DodgerBlue}`};
         cursor: pointer;
         transition: cubic-bezier(1, 0, 0, 1) 0.3s all;
       }
