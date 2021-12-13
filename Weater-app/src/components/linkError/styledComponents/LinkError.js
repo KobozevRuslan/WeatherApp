@@ -9,6 +9,9 @@ import {
 } from '../../../assets/colors/colors';
 
 export const lightTheme = {
+  h2: {
+    color: `${Black}`,
+  },
   link: {
     background: `${White}`,
     color: `${Black}`,
@@ -17,6 +20,9 @@ export const lightTheme = {
 };
 
 export const blackTheme = {
+  h2: {
+    color: `${White}`,
+  },
   link: {
     background: `${LightBlack}`,
     color: `${DarkGray}`,
@@ -28,7 +34,9 @@ export const LinkErrorWrapper = styled.div`
   text-align: center;
 
   h2 {
+    transition: color 0.2s ease;
     margin-bottom: 50px;
+    color: ${(props) => props.theme.h2.color};
   }
 
   a {
