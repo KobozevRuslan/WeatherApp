@@ -28,16 +28,8 @@ const SearchInput = () => {
     })
     .splice(0, 10);
 
-  const onKeyPressHandler = (e) => {
-    if (e.key === 'Enter') {
-      dispatch(fetchData(e.target.value));
-    }
-    setIsOpen(!isOpen);
-  };
-
   const itemOnClickHandler = (e) => {
     setValue(e.target.textContent);
-    dispatch(fetchData(e.target.textContent));
     setIsOpen(!isOpen);
   };
 
@@ -50,6 +42,10 @@ const SearchInput = () => {
     setIsOpen(true);
   };
 
+  const linkOnClickHandler = () => {
+    dispatch(fetchData(value));
+  };
+
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <SearchWrapper>
@@ -57,11 +53,12 @@ const SearchInput = () => {
           className="searchInput"
           value={value}
           placeholder={languegeObject[lang].placeholder}
-          onKeyPress={onKeyPressHandler}
           onChange={onChangeHandler}
           onClick={inputOnClickHandler}
         />
-        <Link to={PathWeather}>{languegeObject[lang].link.search}</Link>
+        <Link onClick={linkOnClickHandler} to={PathWeather}>
+          {languegeObject[lang].link.search}
+        </Link>
         <ul className="autocomplete">
           {value && isOpen
             ? filteredCities.map((city, index) => {
