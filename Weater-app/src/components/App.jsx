@@ -7,8 +7,9 @@ import { fetchData } from '../store/thunk/action/app';
 import { PathError, PathMain, PathWeather } from './routePath';
 
 import Header from './header/Header';
-import Main from './main/Main';
 import SearchInput from './searchInput/SearchInput';
+import Main from './main/Main';
+import LinkError from './linkError/LinkError';
 import HistoryModal from './historyModal/HistoryModal';
 
 import { MainAppWrapper } from './styledComponents/App';
@@ -17,7 +18,6 @@ import GlobalStyle, {
   blackTheme,
   lightTheme,
 } from '../styledComponents/GlobalStyle';
-import LinkError from './linkError/LinkError';
 
 const App = () => {
   const isBlackTheme = useSelector((state) => state.app.isBlackTheme);

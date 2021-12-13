@@ -79,7 +79,7 @@ export const SearchWrapper = styled.div`
 
   .autocomplete {
     position: absolute;
-    left: 27%;
+    left: 28%;
     top: 50px;
     max-width: 420px;
     width: 100%;
