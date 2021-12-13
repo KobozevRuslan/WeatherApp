@@ -2,10 +2,11 @@ import {
   APP_FETCH_DATA_START,
   APP_FETCH_DATA_SUCCESS,
   APP_FETCH_DATA_ERROR,
-  APP_CHANGE_LANG,
-  APP_CHANGE_THEME,
-  APP_CHANGE_MODAL,
-  APP_ADD_CITY,
+  APP_TOGGLE_LANG,
+  APP_TOGGLE_THEME,
+  APP_TOGGLE_MODAL,
+  APP_ADD_HISTORY,
+  APP_SORT,
 } from '../actionType';
 
 import ApiWeather from '../../../service/Api';
@@ -15,16 +16,13 @@ const fetchDataSuccess = (payload) => ({
   type: APP_FETCH_DATA_SUCCESS,
   payload,
 });
-
 const fetchDataError = () => ({ type: APP_FETCH_DATA_ERROR });
 
-export const changeLang = (payload) => ({ type: APP_CHANGE_LANG, payload });
-
-export const changeTheme = () => ({ type: APP_CHANGE_THEME });
-
-export const changeModal = () => ({ type: APP_CHANGE_MODAL });
-
-export const addCity = (payload) => ({ type: APP_ADD_CITY, payload });
+export const toggleLang = (payload) => ({ type: APP_TOGGLE_LANG, payload });
+export const toggleTheme = () => ({ type: APP_TOGGLE_THEME });
+export const togglehModal = () => ({ type: APP_TOGGLE_MODAL });
+export const addHistory = (payload) => ({ type: APP_ADD_HISTORY, payload });
+export const sortHandler = (payload) => ({ type: APP_SORT, payload });
 
 export const fetchData = (city) => {
   return async (dispatch) => {
@@ -32,9 +30,9 @@ export const fetchData = (city) => {
       dispatch(fetchDataStart());
       const data = await ApiWeather.fetchData(city);
       dispatch(fetchDataSuccess(data));
-      dispatch(addCity(city));
+      dispatch(addHistory({ city: city, weather: Math.floor(data.main.temp) }));
     } catch (e) {
-      dispatch(fetchDataError(e));
+      dispatch(fetchDataError(e.data));
     }
   };
 };

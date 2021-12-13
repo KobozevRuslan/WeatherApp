@@ -9,6 +9,32 @@ import {
   White,
 } from '../../../../assets/colors/colors';
 
+export const lightTheme = {
+  background: `${White}`,
+  h3: {
+    color: `${Black}`,
+  },
+  dailyWeatherItem: {
+    color: `${Black}`,
+  },
+  p: {
+    color: `${Gray}`,
+  },
+};
+
+export const blackTheme = {
+  background: `${LightBlack}`,
+  h3: {
+    color: `${White}`,
+  },
+  dailyWeatherItem: {
+    color: `${White}`,
+  },
+  p: {
+    color: `${DarkGray}`,
+  },
+};
+
 export const MainDailyWeatherWrapper = styled.div`
   max-width: 400px;
   width: 100%;
@@ -18,7 +44,7 @@ export const MainDailyWeatherWrapper = styled.div`
   padding: 15px 30px;
   height: 200px;
   transition: background 0.3s ease-in;
-  background: ${(props) => (props.changeTheme ? `${LightBlack}` : `${White}`)};
+  background: ${(props) => props.theme.background};
 
   .dailyWeatherWrapper {
     display: flex;
@@ -35,7 +61,7 @@ export const MainDailyWeatherWrapper = styled.div`
 
       h3 {
         transition: color 0.3s ease-in;
-        color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
+        color: ${(props) => props.theme.h3.color};
       }
     }
 
@@ -43,12 +69,12 @@ export const MainDailyWeatherWrapper = styled.div`
       display: flex;
       align-items: center;
       transition: color 0.3s ease-in;
-      color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
+      color: ${(props) => props.theme.dailyWeatherItem.color};
 
       p {
         margin-right: 5px;
         transition: color 0.3s ease-in;
-        color: ${(props) => (props.changeTheme ? `${DarkGray}` : `${Gray}`)};
+        color: ${(props) => props.theme.p.color};
       }
 
       sup {

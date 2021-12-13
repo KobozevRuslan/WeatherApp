@@ -7,6 +7,18 @@ import {
   White,
 } from '../../../assets/colors/colors';
 
+export const lightTheme = {
+  color: `${Black}`,
+  background: `${White}`,
+  backgroundHover: `${DodgerBlue}`,
+};
+
+export const blackTheme = {
+  color: `${White}`,
+  background: `${LightBlack}`,
+  backgroundHover: `${LightBlack}`,
+};
+
 export const SearchWrapper = styled.div`
   width: 100%;
   position: relative;
@@ -21,9 +33,8 @@ export const SearchWrapper = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     transition: all 0.3s ease-in;
-    color: ${(props) => (props.changeTheme ? `${White}` : `${Black}`)};
-    background: ${(props) =>
-      props.changeTheme ? `${LightBlack}` : `${White}`};
+    color: ${(props) => props.theme.color};
+    background: ${(props) => props.theme.background};
     outline: none;
   }
 
@@ -33,7 +44,7 @@ export const SearchWrapper = styled.div`
     top: 50px;
     max-width: 420px;
     width: 100%;
-    background: white;
+    background: ${White};
     list-style: none;
     margin: 0;
     padding: 0;
@@ -46,9 +57,8 @@ export const SearchWrapper = styled.div`
     .autocompelete_item {
       padding: 10px;
       :hover {
-        color: white;
-        background: ${(props) =>
-          props.changeTheme ? `${LightBlack}` : `${DodgerBlue}`};
+        color: ${White};
+        background: ${(props) => props.theme.backgroundHover};
         cursor: pointer;
         transition: cubic-bezier(1, 0, 0, 1) 0.3s all;
       }

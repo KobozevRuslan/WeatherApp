@@ -1,10 +1,12 @@
 import {
-  APP_CHANGE_LANG,
-  APP_CHANGE_THEME,
   APP_FETCH_DATA_START,
   APP_FETCH_DATA_SUCCESS,
-  APP_CHANGE_MODAL,
-  APP_ADD_CITY,
+  APP_TOGGLE_LANG,
+  APP_TOGGLE_THEME,
+  APP_TOGGLE_MODAL,
+  APP_ADD_HISTORY,
+  APP_SORT,
+  APP_FETCH_DATA_ERROR,
 } from '../actionType';
 
 export const initialState = {
@@ -29,8 +31,9 @@ export const initialState = {
   },
   lang: 'eng',
   isLoading: true,
-  theme: false,
-  modal: false,
+  isBlackTheme: false,
+  isModal: false,
+  isError: false,
   history: [],
 };
 
@@ -41,34 +44,50 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+        isError: false,
       };
     case APP_FETCH_DATA_SUCCESS:
       return {
         ...state,
         weather: payload,
         isLoading: false,
+        isError: false,
       };
-    case APP_CHANGE_LANG:
+    case APP_FETCH_DATA_ERROR:
+      return {
+        ...state,
+        weather: payload,
+        isLoading: false,
+        isError: true,
+      };
+    case APP_TOGGLE_LANG:
       return {
         ...state,
         lang: payload,
       };
-    case APP_CHANGE_THEME:
+    case APP_TOGGLE_THEME:
       return {
         ...state,
-        theme: !state.theme,
+        isBlackTheme: !state.isBlackTheme,
       };
-    case APP_CHANGE_MODAL:
+    case APP_TOGGLE_MODAL:
       return {
         ...state,
-        modal: !state.modal,
+        isModal: !state.isModal,
       };
-    case APP_ADD_CITY:
-      const newHistory = [...state.history];
-      newHistory.push(payload);
+    case APP_ADD_HISTORY:
       return {
         ...state,
-        history: newHistory,
+        history: state.history.concat([payload]),
+      };
+    case APP_SORT:
+      return {
+        ...state,
+        history: [
+          ...state.history.sort((a, b) =>
+            payload ? a.weather - b.weather : b.weather - a.weather
+          ),
+        ],
       };
     default:
       return state;
