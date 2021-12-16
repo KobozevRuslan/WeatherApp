@@ -1,42 +1,6 @@
 import styled from 'styled-components';
 
-import {
-  Black,
-  DarkGray,
-  DodgerBlue,
-  LightBlack,
-  White,
-} from '../../../assets/colors/colors';
-
-export const lightTheme = {
-  history_modal_content: {
-    background: `${White}`,
-    color: `${Black}`,
-  },
-  btn: {
-    background: `${White}`,
-    color: `${Black}`,
-    backgroundHover: `${DodgerBlue}`,
-  },
-  td: {
-    color: `${Black}`,
-  },
-};
-
-export const blackTheme = {
-  history_modal_content: {
-    background: `${LightBlack}`,
-    color: `${DarkGray}`,
-  },
-  btn: {
-    background: `${LightBlack}`,
-    color: `${DarkGray}`,
-    backgroundHover: `${DarkGray}`,
-  },
-  td: {
-    color: `${White}`,
-  },
-};
+import { White } from '../../../assets/colors/colors';
 
 export const HistoryModalWrapper = styled.div`
   width: 100vw;
@@ -56,8 +20,8 @@ export const HistoryModalWrapper = styled.div`
   .history_modal_content {
     padding: 20px;
     border-radius: 12px;
-    background: ${(props) => props.theme.history_modal_content.background};
-    color: ${(props) => props.theme.td.color};
+    background: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.color};
 
     width: 400px;
     transform: ${(props) => (props.switchModal ? 'scale(1)' : 'scale(0.5)')};
@@ -75,7 +39,7 @@ export const HistoryModalWrapper = styled.div`
         cursor: pointer;
         border-radius: 8px 8px 0 0;
         :hover {
-          background: ${(props) => props.theme.btn.backgroundHover};
+          background: ${(props) => props.theme.btnBackgroundHover};
           color: ${White};
         }
       }
@@ -84,7 +48,7 @@ export const HistoryModalWrapper = styled.div`
         padding: 10px;
         border-bottom: 2px solid black;
         transition: all 0.2s ease;
-        color: ${(props) => props.theme.history_modal_content.color};
+        color: ${(props) => props.theme.darkColor};
       }
 
       td {

@@ -1,9 +1,11 @@
+export const engLang = 'eng';
+export const ruLang = 'ru';
+
 export const languegeObject = {
   eng: {
     placeholder: 'Write city...and press enter please',
     historyBtn: 'history',
     mainePageWeather: {
-      loading: 'Loading please wait...',
       error: 'Wrong city, please enter correct city',
       today: 'Today',
       city: 'City',
@@ -27,7 +29,6 @@ export const languegeObject = {
     placeholder: 'Напишите город...и нажмите Enter',
     historyBtn: 'история',
     mainePageWeather: {
-      loading: 'Загрузка, подождите пожалуйста...',
       error: 'Не верный город, пожалуйста введите правильный город',
       today: 'Сегодня',
       city: 'Город',

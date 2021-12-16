@@ -4,25 +4,20 @@ import { ThemeProvider } from 'styled-components';
 
 import { languegeObject } from '../../../store/data/languageObject';
 
-import {
-  blackTheme,
-  lightTheme,
-  MainDailyWeatherWrapper,
-} from './styledComponents/DailyWeather';
+import CheckWrapper from '../../checkWrapper/CheckWrapper';
 
-const DailyWeather = () => {
+import { CardWrapper } from './styledComponents/DailyWeatherCard';
+import { blackTheme, lightTheme } from '../../styledComponents/App';
+
+const DailyWeatherCard = () => {
   const state = useSelector((state) => state.app);
-  const { weather, isLoading, lang, isBlackTheme, isError } = state;
+  const { isBlackTheme, weather, lang } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
-      <MainDailyWeatherWrapper>
-        {isLoading ? (
-          <h2>{languegeObject[lang].mainePageWeather.loading}</h2>
-        ) : isError ? (
-          <h2>{languegeObject[lang].mainePageWeather.error}</h2>
-        ) : (
-          <div className="dailyWeatherWrapper">
+      <CardWrapper>
+        <CheckWrapper>
+          <div className="dailyWeatherItems">
             <div>
               <div className="dailyWeatherCardInfo">
                 <h1>
@@ -44,10 +39,10 @@ const DailyWeather = () => {
               <sup>{weather?.sys.country}</sup>
             </div>
           </div>
-        )}
-      </MainDailyWeatherWrapper>
+        </CheckWrapper>
+      </CardWrapper>
     </ThemeProvider>
   );
 };
 
-export default DailyWeather;
+export default DailyWeatherCard;

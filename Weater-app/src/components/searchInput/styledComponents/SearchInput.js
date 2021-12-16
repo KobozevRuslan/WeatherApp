@@ -1,44 +1,6 @@
 import styled from 'styled-components';
 
-import {
-  Black,
-  DarkGray,
-  DodgerBlue,
-  LightBlack,
-  White,
-} from '../../../assets/colors/colors';
-
-export const lightTheme = {
-  color: `${Black}`,
-  background: `${White}`,
-  backgroundHover: `${DodgerBlue}`,
-  btn: {
-    background: `${White}`,
-    color: `${Black}`,
-    backgroundHover: `${DodgerBlue}`,
-  },
-  link: {
-    background: `${White}`,
-    color: `${Black}`,
-    backgroundHover: `${DodgerBlue}`,
-  },
-};
-
-export const blackTheme = {
-  color: `${White}`,
-  background: `${LightBlack}`,
-  backgroundHover: `${LightBlack}`,
-  btn: {
-    background: `${LightBlack}`,
-    color: `${DarkGray}`,
-    backgroundHover: `${LightBlack}`,
-  },
-  link: {
-    background: `${LightBlack}`,
-    color: `${DarkGray}`,
-    backgroundHover: `${LightBlack}`,
-  },
-};
+import { White } from '../../../assets/colors/colors';
 
 export const SearchWrapper = styled.div`
   width: 100%;
@@ -67,12 +29,12 @@ export const SearchWrapper = styled.div`
     margin-left: 10px;
     padding: 7px 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    background: ${(props) => props.theme.link.background};
+    background: ${(props) => props.theme.background};
     border-radius: 20px;
-    color: ${(props) => props.theme.link.color};
+    color: ${(props) => props.theme.darkColor};
     transition: all 0.2s ease;
     :hover {
-      background: ${(props) => props.theme.link.backgroundHover};
+      background: ${(props) => props.theme.backgroundHover};
       color: ${White};
     }
   }

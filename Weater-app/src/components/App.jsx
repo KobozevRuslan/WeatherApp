@@ -8,8 +8,8 @@ import { PathError, PathMain, PathWeather } from './routePath';
 
 import Header from './header/Header';
 import SearchInput from './searchInput/SearchInput';
-import Main from './main/Main';
-import LinkError from './linkError/LinkError';
+import MainCard from './mainCard/MainCard';
+import LinkError from './errors/linkError/LinkError';
 import HistoryModal from './historyModal/HistoryModal';
 
 import { MainAppWrapper } from './styledComponents/App';
@@ -24,24 +24,24 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData('London'));
-  }, [dispatch]);
+    dispatch(fetchData('London', true));
+  }, []);
 
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
+    <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
+      <BrowserRouter>
         <MainAppWrapper>
           <Header />
           <Routes>
             <Route exact path={PathMain} element={<SearchInput />} />
-            <Route path={PathWeather} element={<Main />} />
+            <Route path={PathWeather} element={<MainCard />} />
             <Route path={PathError} element={<LinkError />} />
           </Routes>
           <HistoryModal />
           <GlobalStyle />
         </MainAppWrapper>
-      </ThemeProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

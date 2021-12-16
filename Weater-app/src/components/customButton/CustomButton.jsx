@@ -3,21 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
 import {
-  togglehModal,
+  toggleModal,
   toggleLang,
   toggleTheme,
 } from '../../store/thunk/action/app';
-import { languegeObject } from '../../store/data/languageObject';
+
+import {
+  engLang,
+  languegeObject,
+  ruLang,
+} from '../../store/data/languageObject';
 
 import dropIcon from '../../assets/image/dropIcon.png';
 import russiaFlagIcon from '../../assets/image/russiaFlagIcon.png';
 import unitedKingdomFlagIcon from '../../assets/image/unitedKingdomFlagIcon.png';
 
-import {
-  blackTheme,
-  lightTheme,
-  BtnWrapper,
-} from './styledComponents/CustomButton';
+import { BtnWrapper } from './styledComponents/CustomButton';
+import { blackTheme, lightTheme } from '../styledComponents/App';
 
 const CustomButton = () => {
   const state = useSelector((state) => state.app);
@@ -27,7 +29,7 @@ const CustomButton = () => {
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <BtnWrapper>
-        <button className="btn" onClick={() => dispatch(togglehModal())}>
+        <button className="btn" onClick={() => dispatch(toggleModal())}>
           {languegeObject[lang].historyBtn}
         </button>
         <div className="imageCircle">
@@ -43,7 +45,7 @@ const CustomButton = () => {
             className="iconBtn"
             src={russiaFlagIcon}
             alt="russiaFlagIcon"
-            onClick={() => dispatch(toggleLang('ru'))}
+            onClick={() => dispatch(toggleLang(ruLang))}
           />
         </div>
         <div className="imageCircle">
@@ -51,7 +53,7 @@ const CustomButton = () => {
             className="iconBtn"
             src={unitedKingdomFlagIcon}
             alt="unitedKingdomFlagIcon"
-            onClick={() => dispatch(toggleLang('eng'))}
+            onClick={() => dispatch(toggleLang(engLang))}
           />
         </div>
       </BtnWrapper>

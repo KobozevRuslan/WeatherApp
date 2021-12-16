@@ -6,25 +6,21 @@ import { PathMain } from '../routePath';
 
 import { languegeObject } from '../../store/data/languageObject';
 
-import DailyWeather from './dailyWeather/DailyWeather';
-import DetailsDailyWeather from './detailsDailyWeather/DetailsDailyWeather';
+import DailyWeatherCard from './dailyWeatherCard/DailyWeatherCard';
+import DetailsDailyWeatherCard from './detailsDailyWeatherCard/DetailsDailyWeatherCard';
 
-import {
-  blackTheme,
-  lightTheme,
-  MainCardWrapper,
-  LinkWrapper,
-} from './styledComponents/Main';
+import { MainCardWrapper, LinkWrapper } from './styledComponents/MainCard';
+import { blackTheme, lightTheme } from '../styledComponents/App';
 
-const Main = () => {
+const MainCard = () => {
   const state = useSelector((state) => state.app);
   const { isBlackTheme, lang } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <MainCardWrapper>
-        <DailyWeather />
-        <DetailsDailyWeather />
+        <DailyWeatherCard />
+        <DetailsDailyWeatherCard />
       </MainCardWrapper>
       <LinkWrapper>
         <Link to={PathMain}>{languegeObject[lang].link.back}</Link>
@@ -33,4 +29,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainCard;
