@@ -4,9 +4,7 @@ import {
   APP_TOGGLE_LANG,
   APP_TOGGLE_THEME,
   APP_TOGGLE_MODAL,
-  APP_SORT,
   APP_FETCH_DATA_ERROR,
-  APP_ADD_TO_HISTORY,
 } from '../actionType';
 
 export const initialState = {
@@ -32,9 +30,8 @@ export const initialState = {
   lang: 'eng',
   isLoading: true,
   isBlackTheme: false,
-  isHistoryModal: false,
+  isHistoryModalShow: false,
   isError: false,
-  history: [],
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -73,21 +70,7 @@ export const appReducer = (state = initialState, action) => {
     case APP_TOGGLE_MODAL:
       return {
         ...state,
-        isHistoryModal: !state.isHistoryModal,
-      };
-    case APP_ADD_TO_HISTORY:
-      return {
-        ...state,
-        history: state.history.concat(payload),
-      };
-    case APP_SORT:
-      return {
-        ...state,
-        history: [
-          ...state.history.sort((a, b) =>
-            payload ? a.weather - b.weather : b.weather - a.weather
-          ),
-        ],
+        isHistoryModalShow: !state.isHistoryModalShow,
       };
     default:
       return state;

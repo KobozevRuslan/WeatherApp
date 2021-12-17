@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { HistoryService } from '../../../service/HistoryService';
 
 import { languegeObject } from '../../../store/data/languageObject';
-import { sortHandler } from '../../../store/thunk/action/app';
 
 const HistoryModalItems = () => {
   const [orderAsc, setOrderAsc] = useState(true);
+  const [localeHistory, setLocaleHistory] = useState([]);
+  const lang = useSelector((state) => state.app.lang);
 
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.app);
-  const { history, lang } = state;
+  useEffect(() => {
+    setLocaleHistory(HistoryService.getHistory());
+  }, []);
 
   const onOrderChange = () => {
     setOrderAsc(!orderAsc);
-    dispatch(sortHandler(orderAsc));
   };
 
   return (
@@ -28,14 +30,18 @@ const HistoryModalItems = () => {
               {orderAsc ? '^' : 'v'}
             </th>
           </tr>
-          {history.map((items, index) => {
-            return (
-              <tr key={index}>
-                <td>{items.city}</td>
-                <td>{items.weather}</td>
-              </tr>
-            );
-          })}
+          {localeHistory
+            .sort((a, b) =>
+              orderAsc ? a.weather - b.weather : b.weather - a.weather
+            )
+            .map((items, index) => {
+              return (
+                <tr key={index}>
+                  <td>{items.city}</td>
+                  <td>{items.weather}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>

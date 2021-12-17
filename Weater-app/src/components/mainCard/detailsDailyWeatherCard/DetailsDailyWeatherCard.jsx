@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { languegeObject } from '../../../store/data/languageObject';
 
-import CheckWrapper from '../../checkWrapper/CheckWrapper';
+import LoadingWrapper from '../../loadingWrapper/LoadingWrapper';
 
 import tempIcon from '../../../assets/image/tempIcon.png';
 import humidityIcon from '../../../assets/image/humidityIcon.png';
@@ -22,7 +22,7 @@ const DetailsDailyWeatherCard = () => {
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <DetailsCardWrapper>
-        <CheckWrapper>
+        <LoadingWrapper>
           <div className="detailsDailyItems">
             <div className="imageCircle">
               <img src={tempIcon} alt="tempIcon" />
@@ -57,7 +57,7 @@ const DetailsDailyWeatherCard = () => {
             <span> {weather?.wind.speed}</span>
           </div>
           <img className="cloud_image" src={cloud} alt="cloud" />
-        </CheckWrapper>
+        </LoadingWrapper>
       </DetailsCardWrapper>
     </ThemeProvider>
   );

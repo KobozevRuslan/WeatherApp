@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Loading from '../loading/Loading';
 import CardError from '../errors/cardError/CardError';
 
-const CheckWrapper = (props) => {
+const LoadingWrapper = (props) => {
   const state = useSelector((state) => state.app);
   const { isLoading, isError } = state;
   return (
@@ -20,4 +20,4 @@ const CheckWrapper = (props) => {
   );
 };
 
-export default CheckWrapper;
+export default LoadingWrapper;

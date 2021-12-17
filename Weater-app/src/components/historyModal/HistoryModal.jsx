@@ -12,12 +12,12 @@ import { blackTheme, lightTheme } from '../styledComponents/App';
 const HistoryModal = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.app);
-  const { isHistoryModal, isBlackTheme } = state;
+  const { isHistoryModalShow, isBlackTheme } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <HistoryModalWrapper
-        switchModal={isHistoryModal}
+        isOpened={isHistoryModalShow}
         onClick={() => dispatch(toggleModal())}
       >
         <HistoryModalItems />

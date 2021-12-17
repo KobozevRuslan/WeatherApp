@@ -20,12 +20,13 @@ import GlobalStyle, {
 } from '../styledComponents/GlobalStyle';
 
 const App = () => {
-  const isBlackTheme = useSelector((state) => state.app.isBlackTheme);
+  const state = useSelector((state) => state.app);
+  const { isBlackTheme, isHistoryModalShow } = state;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchData('London', true));
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
@@ -37,7 +38,7 @@ const App = () => {
             <Route path={PathWeather} element={<MainCard />} />
             <Route path={PathError} element={<LinkError />} />
           </Routes>
-          <HistoryModal />
+          {isHistoryModalShow ? <HistoryModal /> : null}
           <GlobalStyle />
         </MainAppWrapper>
       </BrowserRouter>

@@ -13,8 +13,8 @@ export const HistoryModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${(props) => (props.switchModal ? '1' : '0')};
-  pointer-events: ${(props) => (props.switchModal ? 'all' : 'none')};
+  opacity: ${(props) => (props.isOpened ? '1' : '0')};
+  pointer-events: ${(props) => (props.isOpened ? 'all' : 'none')};
   transition: 0.2s;
 
   .history_modal_content {
@@ -24,7 +24,7 @@ export const HistoryModalWrapper = styled.div`
     color: ${(props) => props.theme.color};
 
     width: 400px;
-    transform: ${(props) => (props.switchModal ? 'scale(1)' : 'scale(0.5)')};
+    transform: ${(props) => (props.isOpened ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
     text-align: center;
     display: flex;

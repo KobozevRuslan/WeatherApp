@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { languegeObject } from '../../../store/data/languageObject';
 
-import CheckWrapper from '../../checkWrapper/CheckWrapper';
+import LoadingWrapper from '../../loadingWrapper/LoadingWrapper';
 
 import { CardWrapper } from './styledComponents/DailyWeatherCard';
 import { blackTheme, lightTheme } from '../../styledComponents/App';
@@ -16,7 +16,7 @@ const DailyWeatherCard = () => {
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
       <CardWrapper>
-        <CheckWrapper>
+        <LoadingWrapper>
           <div className="dailyWeatherItems">
             <div>
               <div className="dailyWeatherCardInfo">
@@ -39,7 +39,7 @@ const DailyWeatherCard = () => {
               <sup>{weather?.sys.country}</sup>
             </div>
           </div>
-        </CheckWrapper>
+        </LoadingWrapper>
       </CardWrapper>
     </ThemeProvider>
   );
