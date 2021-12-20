@@ -1,9 +1,4 @@
 export class HistoryService {
-  static initHistory() {
-    // if (!HistoryService.getHistory())
-    //   localStorage.setItem('history', JSON.stringify([]));
-  }
-
   static getHistory() {
     return JSON.parse(localStorage.getItem('history') || '[]');
   }
@@ -16,5 +11,9 @@ export class HistoryService {
     const currentVal = { city: name, weather: Math.floor(temp) };
     const prevVal = HistoryService.getHistory();
     localStorage.setItem('history', JSON.stringify([...prevVal, currentVal]));
+  }
+
+  static deleteHistory() {
+    localStorage.removeItem('history');
   }
 }

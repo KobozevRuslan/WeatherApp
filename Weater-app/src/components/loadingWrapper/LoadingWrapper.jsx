@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Loading from '../loading/Loading';
+import Preload from '../preload/Preload';
 import CardError from '../errors/cardError/CardError';
 
 const LoadingWrapper = (props) => {
@@ -10,7 +10,7 @@ const LoadingWrapper = (props) => {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <Preload />
       ) : isError ? (
         <CardError />
       ) : (

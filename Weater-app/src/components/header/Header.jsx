@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CustomButton from '../customButton/CustomButton';
+import Navigation from '../navigation/Navigation';
 
 import weatherIcon from '../../assets/image/weatherIcon.png';
 
@@ -14,7 +14,7 @@ const Header = () => {
           <img src={weatherIcon} alt="weatherIcon" />
           <h1>Weather App</h1>
         </div>
-        <CustomButton />
+        <Navigation />
       </div>
     </MainWeatherHeaderWrapper>
   );

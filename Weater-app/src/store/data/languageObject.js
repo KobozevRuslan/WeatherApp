@@ -5,6 +5,7 @@ export const languegeObject = {
   eng: {
     placeholder: 'Write city...and press enter please',
     historyBtn: 'history',
+    clearHistoryBtn: 'clear history',
     mainePageWeather: {
       error: 'Wrong city, please enter correct city',
       today: 'Today',
@@ -28,6 +29,7 @@ export const languegeObject = {
   ru: {
     placeholder: 'Напишите город...и нажмите Enter',
     historyBtn: 'история',
+    clearHistoryBtn: 'очистить историю',
     mainePageWeather: {
       error: 'Не верный город, пожалуйста введите правильный город',
       today: 'Сегодня',

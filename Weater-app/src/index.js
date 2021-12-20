@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 
 import { store } from './store/thunk/index.js';
 
-import Loading from './components/loading/Loading.jsx';
+import Preload from './components/preload/Preload.jsx';
 
 const App = lazy(() => import('./components/App'));
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Preload />}>
       <Provider store={store}>
         <App />
       </Provider>

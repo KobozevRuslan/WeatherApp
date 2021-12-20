@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 import { White } from '../../../assets/colors/colors';
 
-export const BtnWrapper = styled.div`
+export const NavigationWrapper = styled.div`
   display: flex;
   align-items: center;
 
   .btn {
     font-size: 22px;
+    margin-left: 15px;
     padding: 7px;
     cursor: pointer;
     border: none;
