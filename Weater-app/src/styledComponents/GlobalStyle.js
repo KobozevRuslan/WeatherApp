@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+
 import { Black, White } from '../assets/colors/colors';
 
 export const lightTheme = {
@@ -24,7 +25,6 @@ const GlobalStyle = createGlobalStyle`
 		font-size: 18px;
     transition: background 0.3s ease-in;
     background: ${(props) => props.theme.body.background};
-	}
 `;
 
 export default GlobalStyle;

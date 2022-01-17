@@ -1,28 +1,6 @@
 import styled from 'styled-components';
 
-import {
-  Black,
-  DarkGray,
-  DodgerBlue,
-  LightBlack,
-  White,
-} from '../../../assets/colors/colors';
-
-export const lightTheme = {
-  btn: {
-    background: `${White}`,
-    color: `${Black}`,
-    backgroundHover: `${DodgerBlue}`,
-  },
-};
-
-export const blackTheme = {
-  btn: {
-    background: `${LightBlack}`,
-    color: `${DarkGray}`,
-    backgroundHover: `${LightBlack}`,
-  },
-};
+import { White } from '../../../assets/colors/colors';
 
 export const HistoryModalWrapper = styled.div`
   width: 100vw;
@@ -35,16 +13,18 @@ export const HistoryModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${(props) => (props.switchModal ? '1' : '0')};
-  pointer-events: ${(props) => (props.switchModal ? 'all' : 'none')};
+  opacity: ${(props) => (props.isOpened ? '1' : '0')};
+  pointer-events: ${(props) => (props.isOpened ? 'all' : 'none')};
   transition: 0.2s;
 
   .history_modal_content {
     padding: 20px;
     border-radius: 12px;
-    background: ${White};
+    background: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.color};
+
     width: 400px;
-    transform: ${(props) => (props.switchModal ? 'scale(1)' : 'scale(0.5)')};
+    transform: ${(props) => (props.isOpened ? 'scale(1)' : 'scale(0.5)')};
     transition: 0.4s all;
     text-align: center;
     display: flex;
@@ -59,7 +39,7 @@ export const HistoryModalWrapper = styled.div`
         cursor: pointer;
         border-radius: 8px 8px 0 0;
         :hover {
-          background: ${(props) => props.theme.btn.backgroundHover};
+          background: ${(props) => props.theme.btnBackgroundHover};
           color: ${White};
         }
       }
@@ -68,6 +48,7 @@ export const HistoryModalWrapper = styled.div`
         padding: 10px;
         border-bottom: 2px solid black;
         transition: all 0.2s ease;
+        color: ${(props) => props.theme.darkColor};
       }
 
       td {
@@ -75,6 +56,7 @@ export const HistoryModalWrapper = styled.div`
         border-style: solid;
         border-width: 0 1px 1px 0;
         border-color: black;
+
         :last-child {
           border-width: 0 0px 1px 0;
         }

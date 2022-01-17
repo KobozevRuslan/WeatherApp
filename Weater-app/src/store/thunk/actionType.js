@@ -4,5 +4,3 @@ export const APP_FETCH_DATA_ERROR = 'APP_FETCH_DATA_ERROR';
 export const APP_TOGGLE_LANG = 'APP_TOGGLE_LANG';
 export const APP_TOGGLE_THEME = 'APP_TOGGLE_THEME';
 export const APP_TOGGLE_MODAL = 'APP_TOGGLE_MODAL';
-export const APP_ADD_HISTORY = 'APP_ADD_HISTORY';
-export const APP_SORT = 'APP_SORT';

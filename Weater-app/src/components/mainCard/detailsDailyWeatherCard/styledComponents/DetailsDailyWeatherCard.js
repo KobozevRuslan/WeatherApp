@@ -1,40 +1,6 @@
 import styled from 'styled-components';
 
-import {
-  Black,
-  DarkGray,
-  Gray,
-  LightBlack,
-  White,
-} from '../../../../assets/colors/colors';
-
-export const lightTheme = {
-  background: `${White}`,
-  imageCircle: {
-    background: 'none',
-  },
-  p: {
-    color: `${Gray}`,
-  },
-  span: {
-    color: `${Black}`,
-  },
-};
-
-export const blackTheme = {
-  background: `${LightBlack}`,
-  imageCircle: {
-    background: `${White}`,
-  },
-  p: {
-    color: `${DarkGray}`,
-  },
-  span: {
-    color: `${White}`,
-  },
-};
-
-export const MainDetailsDailyWeatherWrapper = styled.div`
+export const DetailsCardWrapper = styled.div`
   position: relative;
   max-width: 700px;
   width: 100%;
@@ -59,7 +25,7 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
       border-radius: 50%;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
       transition: background 0.3s ease-in;
-      background: ${(props) => props.theme.imageCircle.background};
+      background: ${(props) => props.theme.detailsImageCircle};
     }
 
     img {
@@ -73,14 +39,14 @@ export const MainDetailsDailyWeatherWrapper = styled.div`
       text-transform: capitalize;
       margin: 0 10px;
       transition: color 0.3s ease-in;
-      color: ${(props) => props.theme.p.color};
+      color: ${(props) => props.theme.detailsP};
     }
 
     span {
       position: relative;
       z-index: 2;
       transition: color 0.3s ease-in;
-      color: ${(props) => props.theme.span.color};
+      color: ${(props) => props.theme.color};
     }
   }
 

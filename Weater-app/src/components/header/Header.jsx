@@ -1,9 +1,8 @@
 import React from 'react';
 
-import weatherIcon from '../../assets/image/weatherIcon.png';
+import Navigation from '../navigation/Navigation';
 
-import CustomButton from '../customButton/CustomButton';
-import SearchInput from '../searchInput/SearchInput';
+import weatherIcon from '../../assets/image/weatherIcon.png';
 
 import { MainWeatherHeaderWrapper } from './styledComponents/Header';
 
@@ -15,10 +14,7 @@ const Header = () => {
           <img src={weatherIcon} alt="weatherIcon" />
           <h1>Weather App</h1>
         </div>
-      </div>
-      <div className="weatherItems">
-        <SearchInput />
-        <CustomButton />
+        <Navigation />
       </div>
     </MainWeatherHeaderWrapper>
   );

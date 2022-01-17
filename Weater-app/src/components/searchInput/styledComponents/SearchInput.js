@@ -1,27 +1,13 @@
 import styled from 'styled-components';
 
-import {
-  Black,
-  DodgerBlue,
-  LightBlack,
-  White,
-} from '../../../assets/colors/colors';
-
-export const lightTheme = {
-  color: `${Black}`,
-  background: `${White}`,
-  backgroundHover: `${DodgerBlue}`,
-};
-
-export const blackTheme = {
-  color: `${White}`,
-  background: `${LightBlack}`,
-  backgroundHover: `${LightBlack}`,
-};
+import { White } from '../../../assets/colors/colors';
 
 export const SearchWrapper = styled.div`
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .searchInput {
     max-width: 420px;
@@ -38,9 +24,24 @@ export const SearchWrapper = styled.div`
     outline: none;
   }
 
+  a {
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 7px 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    background: ${(props) => props.theme.background};
+    border-radius: 20px;
+    color: ${(props) => props.theme.darkColor};
+    transition: all 0.2s ease;
+    :hover {
+      background: ${(props) => props.theme.backgroundHover};
+      color: ${White};
+    }
+  }
+
   .autocomplete {
     position: absolute;
-    left: 0;
+    left: 28%;
     top: 50px;
     max-width: 420px;
     width: 100%;

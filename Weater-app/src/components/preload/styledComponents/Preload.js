@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Black } from '../../../assets/colors/colors';
 
-export const LoadingWrapper = styled.div`
+export const PreloadWrapper = styled.div`
   width: 95px;
   height: 95px;
   margin: auto;

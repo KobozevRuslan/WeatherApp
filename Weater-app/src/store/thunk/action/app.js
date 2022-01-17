@@ -5,32 +5,33 @@ import {
   APP_TOGGLE_LANG,
   APP_TOGGLE_THEME,
   APP_TOGGLE_MODAL,
-  APP_ADD_HISTORY,
-  APP_SORT,
 } from '../actionType';
 
-import ApiWeather from '../../../service/Api';
+import { HistoryService } from '../../../service/HistoryService';
+import { ApiWeatherService } from '../../../service/ApiWeatherService';
 
 const fetchDataStart = () => ({ type: APP_FETCH_DATA_START });
-const fetchDataSuccess = (payload) => ({
-  type: APP_FETCH_DATA_SUCCESS,
-  payload,
-});
+const fetchDataSuccess = (payload) => {
+  return {
+    type: APP_FETCH_DATA_SUCCESS,
+    payload,
+  };
+};
 const fetchDataError = () => ({ type: APP_FETCH_DATA_ERROR });
 
 export const toggleLang = (payload) => ({ type: APP_TOGGLE_LANG, payload });
 export const toggleTheme = () => ({ type: APP_TOGGLE_THEME });
-export const togglehModal = () => ({ type: APP_TOGGLE_MODAL });
-export const addHistory = (payload) => ({ type: APP_ADD_HISTORY, payload });
-export const sortHandler = (payload) => ({ type: APP_SORT, payload });
+export const toggleModal = () => ({ type: APP_TOGGLE_MODAL });
 
-export const fetchData = (city) => {
+export const fetchData = (city, isInit = false) => {
   return async (dispatch) => {
     try {
       dispatch(fetchDataStart());
-      const data = await ApiWeather.fetchData(city);
-      dispatch(fetchDataSuccess(data));
-      dispatch(addHistory({ city: city, weather: Math.floor(data.main.temp) }));
+      const data = await ApiWeatherService.fetchData(city);
+      dispatch(fetchDataSuccess(data, isInit));
+      if (!isInit) {
+        HistoryService.updateHistory(data);
+      }
     } catch (e) {
       dispatch(fetchDataError(e.data));
     }

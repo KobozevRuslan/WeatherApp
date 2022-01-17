@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { fetchData } from '../store/thunk/action/app';
+import { PathError, PathMain, PathWeather } from './routePath';
 
 import Header from './header/Header';
-import Main from './main/Main';
+import SearchInput from './searchInput/SearchInput';
+import MainCard from './mainCard/MainCard';
+import LinkError from './errors/linkError/LinkError';
 import HistoryModal from './historyModal/HistoryModal';
 
 import { MainAppWrapper } from './styledComponents/App';
@@ -16,21 +20,28 @@ import GlobalStyle, {
 } from '../styledComponents/GlobalStyle';
 
 const App = () => {
-  const isBlackTheme = useSelector((state) => state.app.isBlackTheme);
+  const state = useSelector((state) => state.app);
+  const { isBlackTheme, isHistoryModalShow } = state;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData('London'));
+    dispatch(fetchData('London', true));
   }, [dispatch]);
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
-      <MainAppWrapper>
-        <Header />
-        <Main />
-        <HistoryModal />
-        <GlobalStyle />
-      </MainAppWrapper>
+      <BrowserRouter>
+        <MainAppWrapper>
+          <Header />
+          <Routes>
+            <Route exact path={PathMain} element={<SearchInput />} />
+            <Route path={PathWeather} element={<MainCard />} />
+            <Route path={PathError} element={<LinkError />} />
+          </Routes>
+          {isHistoryModalShow ? <HistoryModal /> : null}
+          <GlobalStyle />
+        </MainAppWrapper>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };
