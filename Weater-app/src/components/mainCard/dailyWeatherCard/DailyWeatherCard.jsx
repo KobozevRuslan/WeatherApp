@@ -11,7 +11,7 @@ import { blackTheme, lightTheme } from '../../styledComponents/App';
 
 const DailyWeatherCard = () => {
   const state = useSelector((state) => state.app);
-  const { isBlackTheme, weather, lang } = state;
+  const { isBlackTheme, mainWeatherObj, lang } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
@@ -21,12 +21,12 @@ const DailyWeatherCard = () => {
             <div>
               <div className="dailyWeatherCardInfo">
                 <h1>
-                  {Math.floor(weather?.main.temp)}
+                  {Math.floor(mainWeatherObj?.main.temp)}
                   <sup>&deg;</sup>
                 </h1>
                 <img
-                  src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
-                  alt={weather?.weather[0].description}
+                  src={`https://openweathermap.org/img/wn/${mainWeatherObj?.weather[0].icon}@2x.png`}
+                  alt={mainWeatherObj?.weather[0].description}
                 />
               </div>
               <div className="dailyWeatherCardInfo">
@@ -35,8 +35,8 @@ const DailyWeatherCard = () => {
             </div>
             <div className="dailyWeatherItem">
               <p>{languegeObject[lang].mainePageWeather.city}:</p>
-              <span>{weather?.name}</span>
-              <sup>{weather?.sys.country}</sup>
+              <span>{mainWeatherObj?.name}</span>
+              <sup>{mainWeatherObj?.sys.country}</sup>
             </div>
           </div>
         </LoadingWrapper>

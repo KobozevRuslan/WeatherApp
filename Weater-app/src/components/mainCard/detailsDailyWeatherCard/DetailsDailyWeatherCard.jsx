@@ -17,7 +17,7 @@ import { blackTheme, lightTheme } from '../../styledComponents/App';
 
 const DetailsDailyWeatherCard = () => {
   const state = useSelector((state) => state.app);
-  const { isBlackTheme, weather, lang } = state;
+  const { isBlackTheme, mainWeatherObj, lang } = state;
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>
@@ -29,9 +29,9 @@ const DetailsDailyWeatherCard = () => {
             </div>
             <p>{languegeObject[lang].mainePageWeather.temperature}: </p>
             <span>
-              {Math.floor(weather?.main.temp)}
+              {Math.floor(mainWeatherObj?.main.temp)}
               <sup>&deg;</sup> {languegeObject[lang].mainePageWeather.feel}{' '}
-              {Math.floor(weather?.main.feels_like)}
+              {Math.floor(mainWeatherObj?.main.feels_like)}
               <sup>&deg;</sup>
             </span>
           </div>
@@ -40,21 +40,21 @@ const DetailsDailyWeatherCard = () => {
               <img src={precipitationIcon} alt="precipitationIcon" />
             </div>
             <p>{languegeObject[lang].mainePageWeather.precipitation}: </p>
-            <span>{weather?.weather[0].description}</span>
+            <span>{mainWeatherObj?.weather[0].description}</span>
           </div>
           <div className="detailsDailyItems">
             <div className="imageCircle">
               <img src={humidityIcon} alt="humidityIcon" />
             </div>
             <p>{languegeObject[lang].mainePageWeather.pressire}: </p>
-            <span>{weather?.main.pressure}</span>
+            <span>{mainWeatherObj?.main.pressure}</span>
           </div>
           <div className="detailsDailyItems">
             <div className="imageCircle">
               <img src={windIcon} alt="windIcon" />
             </div>
             <p>{languegeObject[lang].mainePageWeather.wind}: </p>
-            <span> {weather?.wind.speed}</span>
+            <span> {mainWeatherObj?.wind.speed}</span>
           </div>
           <img className="cloud_image" src={cloud} alt="cloud" />
         </LoadingWrapper>

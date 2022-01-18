@@ -8,7 +8,7 @@ import {
 } from '../actionType';
 
 export const initialState = {
-  weather: {
+  mainWeatherObj: {
     main: {
       temp: '',
       country: '',
@@ -46,14 +46,14 @@ export const appReducer = (state = initialState, action) => {
     case APP_FETCH_DATA_SUCCESS:
       return {
         ...state,
-        weather: payload,
+        mainWeatherObj: payload,
         isLoading: false,
         isError: false,
       };
     case APP_FETCH_DATA_ERROR:
       return {
         ...state,
-        weather: payload,
+        mainWeatherObj: payload,
         isLoading: false,
         isError: true,
       };

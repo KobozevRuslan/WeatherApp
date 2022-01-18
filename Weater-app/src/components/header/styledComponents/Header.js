@@ -18,5 +18,6 @@ export const MainWeatherHeaderWrapper = styled.div`
   h1 {
     margin-left: 20px;
     color: ${DodgerBlue};
+    cursor: default;
   }
 `;
