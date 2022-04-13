@@ -16,6 +16,7 @@ export const HistoryModalWrapper = styled.div`
   opacity: ${(props) => (props.isOpened ? '1' : '0')};
   pointer-events: ${(props) => (props.isOpened ? 'all' : 'none')};
   transition: 0.2s;
+  cursor: default;
 
   .history_modal_content {
     padding: 20px;

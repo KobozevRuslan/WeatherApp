@@ -26,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchData('London', true));
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={isBlackTheme ? blackTheme : lightTheme}>

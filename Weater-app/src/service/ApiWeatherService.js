@@ -11,7 +11,7 @@ export class ApiWeatherService {
           q: city,
           units: 'metric',
           APPID: API_KEY,
-        },
+        }, 
       });
       return data;
     } catch (e) {
